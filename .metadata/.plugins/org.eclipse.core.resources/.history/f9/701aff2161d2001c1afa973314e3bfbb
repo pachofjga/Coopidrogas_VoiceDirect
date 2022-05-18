@@ -1,0 +1,398 @@
+#-------------------------------------------------------------------------------
+#  Copyright 2016 Honeywell International Inc. All rights reserved. 
+#-------------------------------------------------------------------------------
+import voice
+from vocollect_core import itext
+from vocollect_core.dialog.digits_prompt import DigitsPrompt
+from vocollect_core.dialog.ready_prompt import ReadyPrompt
+from _voice import log_message
+########################################################################
+# Override the Digits prompt
+########################################################################
+class VDERPDigitsPrompt(DigitsPrompt):
+    '''
+    VDERPDigitsPrompt extends DigitsPrompt and provides common functionality for VDERP digits collection
+    '''
+
+    def __init__(self, prompt, help_msg, 
+                 min_length, 
+                 max_length,
+                 confirmation_prompts, 
+                 scan, anchor_exists,
+                 delay_mode=0):
+        
+        
+        confirm = False
+        if "getter" in confirmation_prompts:
+            confirm = True
+        if min_length is not None:
+            min_length = int(min_length)
+        if max_length is not None:
+            max_length = int(max_length)
+        self.anchor_exists = int(anchor_exists)
+        DigitsPrompt.__init__(self, prompt, help_msg, 
+                              min_length, max_length,
+                              confirm, scan)
+        
+        self._confirmation_prompts = confirmation_prompts 
+        self._delay_mode = delay_mode
+        
+        '''
+        For VDERP - we always want to repeat the prompt
+        '''
+        self.invalid_count_max = 2
+                
+        '''
+        Change vocabulary to be VDERP Vocabulary
+        '''
+        ''' ML does not use VDERP vocabulary substitutes therefore
+            these changes are commented out 
+
+        self.links['Link15'].vocab |= set(['VRESERVE003'])
+        self.links['Link16'].vocab |= set(['VRESERVE004'])
+        self.links['Link22'].vocab |= set(['VRESERVE001'])
+
+        self.links['Link15'].vocab -= set(['yes'])
+        self.links['Link16'].vocab -= set(['no'])
+        self.links['Link22'].vocab -= set(['ready'])  
+
+
+        We had to override the base code from the digits_prompt class
+           because we use the reserve symbol VRESERVE007 instead of using cancel.
+
+        
+        if int(self.max_length) is None or int(self.max_length) <= 0:
+            if 'VRESERVE007' in voice.get_all_vocabulary_from_vad():
+                self.links['link_cancel'] = voice.Link('link_cancel',
+                                                       self.nodes['Digits'],
+                                                       self.nodes['PromptHere'],
+                                                       ['VRESERVE007'])'''
+
+    def confirm_prompt(self):
+        ''' check if result value should be confirmed or 
+        not based on additional vocabulary and confirm flag
+        '''
+        if self.should_confirm():
+            if self.result in self.additional_vocab:
+                self.nodes['ConfirmPrompt'].prompt = self._confirmation_prompts[self.result]
+            else:
+                self.nodes['ConfirmPrompt'].prompt = itext(self._confirmation_prompts["getter"], self.result)
+            return True 
+        return False
+
+    def wrong_prompt_set_priority(self, priority):
+        self.nodes['InvalidPrompt'].prompt_is_priority = priority
+        
+    def is_valid_value(self):
+        ''' check if expected value is required '''
+        
+        #Value is additional vocabulary
+        retFlag = True
+        if self.result in self.additional_vocab:
+            return True
+        '''checks to see if the expected value is the same as the returned value
+       ignoring the case except for scanning where the case is not ignored
+       Currently VDERP does not support multiple expected values so the loop is going
+       to get executed only once''' 
+        if self.expected != None:
+            for item in self.expected:
+                if self.is_scanned != True:
+                    self.result = self.result.upper()
+                    item = item.upper()
+                if self.is_expected_required and self.result != item:
+                    key = self.invalid_key
+                         
+            #not a valid entry
+                    self.nodes['InvalidPrompt'].prompt = itext(key, self.result)
+                    self.is_scanned = False
+                    retFlag = False
+        
+        if retFlag == True:
+            return True
+        
+    
+    ''' Override the base function _update_help of the base class digits_prompt
+        This function had to override the base digits_prompt
+        because we use VRESERVE007 instead of cancel'''
+    
+    def _update_help(self, *node_names):
+        ''' Updates the help message to include the value spoken so far
+            when ready is required to complete entry
+            only updates help at Digits node
+            unless one or more node_names are specified
+        '''
+        help_key = 'generic.digits.help'
+        if 'cancel' in voice.get_all_vocabulary_from_vad():
+            if (self.anchor_exists == 0):
+                help_key = 'generic.digits.help.cancel'
+            else:
+                help_key = 'generic.digits.help.uom.cancel'
+        help_msg = itext(help_key, self.result)
+        # inherent truth/falsehood of [un]populated sequences
+        if node_names:
+            for node_name in node_names:
+                self.nodes[node_name].help_prompt = help_msg
+        else:
+            self.nodes['Digits'].help_prompt = help_msg
+            
+def _reassign_yes_no_link_vocabs(dialog):
+    ''' 
+    Convenience function to replace vocabs on links of
+    ReadyPrompt vid. THIS CAN ONLY BE USED FOR THE ReadyPrompt 
+    DIALOG, since the link references are unique to each dialog.    
+    '''
+    ''' Add Words VRESERVE003 and VRESERVE004 to the following links.'''
+    dialog.links['Link10'].vocab |= set(['VRESERVE003'])
+    dialog.links['Link11'].vocab |= set(['VRESERVE004'])
+    ''' Remove the english words "yes" and "no" from the following links.'''
+    dialog.links['Link10'].vocab -= set(['yes'])
+    dialog.links['Link11'].vocab -= set(['no'])
+
+def prompt_sign_off(prompt, help_msg = None, priority_prompt = False):
+
+    ''' Wrapper function for prompting user and waiting for user to sign off.
+        This method is typically used to force the user to sign off due to an
+        unrecoverable error condition.
+    
+    
+    Parameters:
+          prompt - prompt to be spoken
+          help_msg - the help message for this prompt
+          priority (Default=False) - whether or not prompt is priority prompt
+          
+    returns: Word spoken - (sign off)
+    '''
+
+    dialog = ReadyPrompt(prompt, priority_prompt)
+    ''' Add VRESERVE002 (sign off) to the main link '''
+    dialog.links['main'].vocab |= set(['VRESERVE002'])
+    ''' Remove the english word "ready" from the main link ''' 
+    dialog.remove_ready()
+    
+    _reassign_yes_no_link_vocabs(dialog)
+  
+    dialog.nodes['StartHere'].help_prompt = help_msg
+        
+    return dialog.run() 
+ 
+ 
+def prompt_words(prompt, priority_prompt = False, additional_vocab = []):
+    ''' Wrapper function for prompting user with specified list of words
+        (not including the word 'ready')
+    
+    Parameters:
+          prompt - prompt to be spoken
+          priority (Default=False) - whether or not prompt is priority prompt
+          additional_vocab - List of additional words
+          
+    returns: Word spoken
+    '''
+    dialog = ReadyPrompt(prompt, priority_prompt)
+    dialog.set_additional_vocab(additional_vocab)
+    dialog.remove_ready()
+
+    _reassign_yes_no_link_vocabs(dialog)
+  
+    return dialog.run()
+            
+  
+        
+#----------------------------------------------------------------------------
+#Ready prompt
+#----------------------------------------------------------------------------
+def prompt_ready(prompt, help_msg = None, priority_prompt = False, additional_vocab = [], single_ready_prompt = True):
+    ''' Wrapper function for prompting user and waiting for user to confirm with ready
+    
+    Parameters:
+          prompt - prompt to be spoken
+          help_msg - the help message for this prompt
+          priority (Default=False) - whether or not prompt is priority prompt
+          additional_vocab (Default=[]) - List of additional words
+          
+    returns: Word spoken
+    '''
+
+    dialog = ReadyPrompt(prompt, priority_prompt)
+    ''' Add VRESERVE001  to the main link '''
+    dialog.links['main'].vocab |= set(['VRESERVE001'])
+    ''' Remove the english word "ready" from the main link ''' 
+    dialog.remove_ready()
+     
+    _reassign_yes_no_link_vocabs(dialog)
+  
+    ''' set the help message that was passed in '''
+    ''' See if the dialog has any additional vocabulary words ''' 
+    dialog_vocab = list(dialog.additional_vocab.keys())
+    print(dialog_vocab)
+    ''' add the additional vocabulary words that were passed to us 
+        to the list of vocabulary words already on the dialog's links.'''
+    dialog_vocab.extend(additional_vocab )
+
+    ''' Build the help message adding any additional vocabulary words to the base help message '''    
+    if (len(dialog_vocab)) == 1:
+        if not dialog_vocab[0] in help_msg:
+            help_msg = help_msg + ' '+ itext('generic.help.dynamic.single', dialog_vocab[0])
+    elif (len(dialog_vocab)) > 1:
+        vocabhelp = ""
+        for index in range(len(dialog_vocab)-1):
+            if not dialog_vocab[index] in help_msg:
+                vocabhelp = vocabhelp + str(dialog_vocab[index]) + ', '     
+        help_msg = help_msg + ' '+ itext('generic.help.dynamic.multiple', vocabhelp, dialog_vocab[(len(dialog_vocab)-1)]) 
+    ''' add help message to node '''
+    dialog.nodes['StartHere'].help_prompt = help_msg
+    ''' Put the additional vocabulary words on the main link along with VRESERVE001 '''
+    # VDIVW-271 Ported from VDERP_1.1_002-ECS
+    # dialog.links['main'].vocab |= set(dialog_vocab)
+    dialog.set_additional_vocab(additional_vocab)
+    
+    dialog.links['main'].vocab |= set(dialog_vocab)
+    if single_ready_prompt == False:
+        dialog.links['main'].vocab -= set(['VRESERVE001'])
+        
+        
+    return dialog.run()
+
+
+   
+def prompt_data( prompt, help_msg, min_length, max_length,
+                   confirmation_prompts, wrong_priority_prompt, 
+                   wrong_prompt, scan,  speech_delay_mode, 
+                   must_equal, additional_vocab,
+                   hint, datatype,priority_prompt, ready):
+    ''' Wrapper function for all data entry prompts
+    
+    Parameters:
+        prompt - main prompt to be spoken
+        help_msg - main help message to be spoken
+        min_length - minimum number of digits allowed
+        max_length - Maximum number of digits allowed
+        confirmation_prompts - a dictionary of possible confirmation prompts
+        wrong_priority_prompt - should the wrong prompt be a priority prompt
+        wrong_prompt - is the prompt to speak when the value entered by the 
+            operator does not match the mustEqual value
+        scan - determines if scanning needs to be enabled
+        speech_delay_mode - indicates how the system should behave 
+        when the speech_delay_time has been tripped.  0 indicates that the 
+        operator is done entering digits.  1 indicates that the operator wants 
+        to restart entering digits
+        must_equal - is either an empty string or the value the operator must 
+            speak for validation
+        additional_vocab (Default=[]) - List of additional words
+        hint - recognition hint value. This might have the ready vocab appended
+        for the case where the ready property was set in the VoiceAttribute.
+        datatype - this is either numeric, alpha, or alphanumeric depending 
+        on what kind of data we are trying to capture. 
+        priority_prompt - this checks to see if the prompt is a priority prompt
+        ready - this bit when set forces the operator to speak ready
+    returns: Digits string entered by operator
+    '''
+
+    ''' Get an instance of the dialog and set up some of the configuration. '''
+    dialog = VDERPDigitsPrompt(prompt, help_msg, min_length, max_length, confirmation_prompts, scan, "0", speech_delay_mode)
+    
+    ''' Based on datatype update the vocab and digits as needed. '''
+    if datatype == 'AlphaNumeric':
+        dialog.add_additional_digits(['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J',
+                                      'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T',
+                                      'U', 'V', 'W', 'X', 'Y', 'Z'])
+    if datatype == 'Float':
+        dialog.add_additional_digits(['.'])
+    elif datatype == 'Alpha':
+        dialog.add_additional_digits(['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J',
+                                      'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T',
+                                      'U', 'V', 'W', 'X', 'Y', 'Z'])       
+        dialog.remove_digits(['1', '2', '3', '4', '5', '6', '7', '8', '9', '0'])
+
+
+    ''' Complete configuration of the dialog based on the voice attributes. '''
+    dialog.set_additional_vocab(additional_vocab)
+    dialog.nodes['StartHere'].help_prompt = help_msg
+        
+    
+    if must_equal != '':
+        dialog.set_required([must_equal])
+        #force the operator to speak ready if the ready bit is set
+        # this is needed to ensure that the min max length is not effected by the fieldvalue length
+        if(int(ready)):
+            dialog.max_length = 0
+            dialog.min_length = 1
+ #   if confirm_prompt != None:
+#        dialog.confirm_prompt_key = confirm_prompt
+    if wrong_prompt != None:
+        dialog.invalid_key = wrong_prompt
+        dialog.wrong_prompt_set_priority(wrong_priority_prompt)
+        
+    ''' Set the response expression here to the hint passed from the voice attribute'''        
+    dialog.nodes['StartHere'].response_expression = hint
+    dialog.nodes['PromptHere'].prompt_is_priority = priority_prompt
+   
+    return dialog.run(), dialog.is_scanned
+
+
+def prompt_anchor(prompt, help_msg, min_length, max_length,
+                   confirmation_prompts, wrong_priority_prompt, 
+                   wrong_prompt, scan,  speech_delay_mode, 
+                   must_equal, additional_vocab,
+                   hint, datatype,priority_prompt, ready, anchor_word, anchor_list, #@ReservedAssignment
+                   characters = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0','.']):
+    ''' Wrapper function for alpha ONLY
+    
+    Parameters:
+          prompt - main prompt to be spoken
+          help - main help message to be spoken
+          anchor_words (default - ready) - list of anchor words that may be spoken
+          characters (default - all digits) - list of characters that can be spoken 
+          Confirm (default=True) - Determine whether or not entered values 
+                                   should be confirmed by operator
+          scan (Default=ScanMode.Off) - determines if scanning needs to be enabled
+                    and the mode of scanning (Off, Single, Multiple) True/False can
+                    also be passed in True = Single, False = Off
+          additional_vocab (default={}) - Dictionary of additional words and whether 
+                                          or not they should be confirmed
+          
+    returns: Digits/Characters spoken, anchor word used and if scanning enabled, 
+    whether or not value was scanned entered by operator
+    '''
+    
+    
+    #process dialog normally if no queue up scans expected or available
+    dialog = VDERPDigitsPrompt(prompt, help_msg, min_length, max_length, confirmation_prompts, scan, anchor_word, speech_delay_mode)
+    if datatype == 'Float':
+        dialog.add_additional_digits(['.'])
+    
+    ''' Complete configuration of the dialog based on the voice attributes. '''
+    dialog.set_additional_vocab(additional_vocab)
+    dialog.nodes['StartHere'].help_prompt = help_msg
+    
+    if must_equal != '':
+        dialog.set_required([must_equal])
+        #force the operator to speak ready if the ready bit is set
+        # this is needed to ensure that the min max length is not effected by the fieldvalue length
+        if(int(ready)):
+            dialog.max_length = 0
+            dialog.min_length = 1
+#   if confirm_prompt != None:
+#        dialog.confirm_prompt_key = confirm_prompt
+    if wrong_prompt != None:
+        dialog.invalid_key = wrong_prompt
+        dialog.wrong_prompt_set_priority(wrong_priority_prompt)
+        
+    ''' Set the response expression here to the hint passed from the voice attribute'''        
+    dialog.nodes['StartHere'].response_expression = hint
+    dialog.nodes['PromptHere'].prompt_is_priority = priority_prompt
+    dialog.set_anchors(anchor_list)
+    
+    if(int(anchor_word) == 1):
+        dialog.max_length = 0
+        dialog.min_length = 1
+
+    #get result of dialog
+    result = dialog.run()
+    #determine anchor word. if scanned or result is not made up of valid 
+    #characters (i.e. an additional vocab spoken) then anchor return as None
+    #otherwise anchor word used to exit Digits node    
+    anchorKey = None
+    if not dialog.is_scanned and set(result).issubset(set(characters)):
+        anchorKey = dialog.nodes['Digits'].last_recog
+  
+    return result, anchorKey

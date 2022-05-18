@@ -1,0 +1,18 @@
+<div id='master'>
+
+<p>Sign in.</p>
+
+<input type="password" id='password'/>
+
+<input type="button" value="Submit" id='submit'/>
+
+
+</div>
+
+<script>
+    $(function() {
+        $('#submit').click(function() {
+            comm_manager.advance_application($("#password").val());            
+        })
+    })
+</script>

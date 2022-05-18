@@ -1,0 +1,371 @@
+-- VERSION_4
+-- START DISKCACHE_2
+E:\Back UP 26Diciembre2020\WorkSpaceGIT_VAOxygen\Coopidrogas_VoiceDirect\.metadata\.plugins\org.eclipse.core.resources\.projects\Vocollect Core Library 1.4.1\com.python.pydev.analysis\v2_indexcache
+vocollect_core_test.unit_tests.test_taskbase|1652402740141140000|E:\Back UP 26Diciembre2020\WorkSpaceGIT_VAOxygen\Coopidrogas_VoiceDirect\Vocollect Core Library 1.4.1\test\vocollect_core_test\unit_tests\test_taskbase.py
+vocollect_core_test.unit_tests.test_hint_manipulation|1652402740096442000|E:\Back UP 26Diciembre2020\WorkSpaceGIT_VAOxygen\Coopidrogas_VoiceDirect\Vocollect Core Library 1.4.1\test\vocollect_core_test\unit_tests\test_hint_manipulation.py
+vocollect_core.utilities.util_methods|1652402740056837000|E:\Back UP 26Diciembre2020\WorkSpaceGIT_VAOxygen\Coopidrogas_VoiceDirect\Vocollect Core Library 1.4.1\src\vocollect_core\utilities\util_methods.py
+vocollect_core_test.unit_tests.test_list_dialog|1652402740108420000|E:\Back UP 26Diciembre2020\WorkSpaceGIT_VAOxygen\Coopidrogas_VoiceDirect\Vocollect Core Library 1.4.1\test\vocollect_core_test\unit_tests\test_list_dialog.py
+vocollect_core.utilities.pickler|1652402740048836000|E:\Back UP 26Diciembre2020\WorkSpaceGIT_VAOxygen\Coopidrogas_VoiceDirect\Vocollect Core Library 1.4.1\src\vocollect_core\utilities\pickler.py
+vocollect_core_test.unit_tests.test_factories|1652402740084724000|E:\Back UP 26Diciembre2020\WorkSpaceGIT_VAOxygen\Coopidrogas_VoiceDirect\Vocollect Core Library 1.4.1\test\vocollect_core_test\unit_tests\test_factories.py
+vocollect_core_test.unit_tests.test_scanning|1652402740136066000|E:\Back UP 26Diciembre2020\WorkSpaceGIT_VAOxygen\Coopidrogas_VoiceDirect\Vocollect Core Library 1.4.1\test\vocollect_core_test\unit_tests\test_scanning.py
+vocollect_core.task.task|1652402740031836000|E:\Back UP 26Diciembre2020\WorkSpaceGIT_VAOxygen\Coopidrogas_VoiceDirect\Vocollect Core Library 1.4.1\src\vocollect_core\task\task.py
+vocollect_core_test.unit_tests.test_ready_prompt|1652402740130631000|E:\Back UP 26Diciembre2020\WorkSpaceGIT_VAOxygen\Coopidrogas_VoiceDirect\Vocollect Core Library 1.4.1\test\vocollect_core_test\unit_tests\test_ready_prompt.py
+dialogs|1652402739962137000|E:\Back UP 26Diciembre2020\WorkSpaceGIT_VAOxygen\Coopidrogas_VoiceDirect\Vocollect Core Library 1.4.1\src\dialogs.py
+vocollect_core_test.base_test_case|1652402740066781000|E:\Back UP 26Diciembre2020\WorkSpaceGIT_VAOxygen\Coopidrogas_VoiceDirect\Vocollect Core Library 1.4.1\test\vocollect_core_test\base_test_case.py
+vocollect_core_test.unit_tests.test_discrete_grammar|1652402740079737000|E:\Back UP 26Diciembre2020\WorkSpaceGIT_VAOxygen\Coopidrogas_VoiceDirect\Vocollect Core Library 1.4.1\test\vocollect_core_test\unit_tests\test_discrete_grammar.py
+vocollect_core.task.task_runner|1652402740032839000|E:\Back UP 26Diciembre2020\WorkSpaceGIT_VAOxygen\Coopidrogas_VoiceDirect\Vocollect Core Library 1.4.1\src\vocollect_core\task\task_runner.py
+vocollect_core.utilities.obj_factory|1652402740043837000|E:\Back UP 26Diciembre2020\WorkSpaceGIT_VAOxygen\Coopidrogas_VoiceDirect\Vocollect Core Library 1.4.1\src\vocollect_core\utilities\obj_factory.py
+vocollect_core.dialog.list_prompt|1652402740002285000|E:\Back UP 26Diciembre2020\WorkSpaceGIT_VAOxygen\Coopidrogas_VoiceDirect\Vocollect Core Library 1.4.1\src\vocollect_core\dialog\list_prompt.py
+vocollect_core_test.unit_tests.test_localization|1652402740114616000|E:\Back UP 26Diciembre2020\WorkSpaceGIT_VAOxygen\Coopidrogas_VoiceDirect\Vocollect Core Library 1.4.1\test\vocollect_core_test\unit_tests\test_localization.py
+vocollect_core.dialog.prompt_only|1652402740004300000|E:\Back UP 26Diciembre2020\WorkSpaceGIT_VAOxygen\Coopidrogas_VoiceDirect\Vocollect Core Library 1.4.1\src\vocollect_core\dialog\prompt_only.py
+vocollect_core_test.__init__|1652402740061695000|E:\Back UP 26Diciembre2020\WorkSpaceGIT_VAOxygen\Coopidrogas_VoiceDirect\Vocollect Core Library 1.4.1\test\vocollect_core_test\__init__.py
+vocollect_core.utilities.localization|1652402740042836000|E:\Back UP 26Diciembre2020\WorkSpaceGIT_VAOxygen\Coopidrogas_VoiceDirect\Vocollect Core Library 1.4.1\src\vocollect_core\utilities\localization.py
+vocollect_core.dialog.__init__|1652402739964135000|E:\Back UP 26Diciembre2020\WorkSpaceGIT_VAOxygen\Coopidrogas_VoiceDirect\Vocollect Core Library 1.4.1\src\vocollect_core\dialog\__init__.py
+vocollect_core.dialog.float_prompt|1652402739985135000|E:\Back UP 26Diciembre2020\WorkSpaceGIT_VAOxygen\Coopidrogas_VoiceDirect\Vocollect Core Library 1.4.1\src\vocollect_core\dialog\float_prompt.py
+vocollect_core_test.unit_tests.test_digits_dialogs|1652402740073783000|E:\Back UP 26Diciembre2020\WorkSpaceGIT_VAOxygen\Coopidrogas_VoiceDirect\Vocollect Core Library 1.4.1\test\vocollect_core_test\unit_tests\test_digits_dialogs.py
+vocollect_core.utilities.class_factory|1652402740034837000|E:\Back UP 26Diciembre2020\WorkSpaceGIT_VAOxygen\Coopidrogas_VoiceDirect\Vocollect Core Library 1.4.1\src\vocollect_core\utilities\class_factory.py
+vocollect_core.dialog.yes_no_prompt|1652402740012294000|E:\Back UP 26Diciembre2020\WorkSpaceGIT_VAOxygen\Coopidrogas_VoiceDirect\Vocollect Core Library 1.4.1\src\vocollect_core\dialog\yes_no_prompt.py
+vocollect_core.task.__init__|1652402740019282000|E:\Back UP 26Diciembre2020\WorkSpaceGIT_VAOxygen\Coopidrogas_VoiceDirect\Vocollect Core Library 1.4.1\src\vocollect_core\task\__init__.py
+vocollect_core_test.unit_tests.test_prompt_only|1652402740125677000|E:\Back UP 26Diciembre2020\WorkSpaceGIT_VAOxygen\Coopidrogas_VoiceDirect\Vocollect Core Library 1.4.1\test\vocollect_core_test\unit_tests\test_prompt_only.py
+vocollect_core.__init__|1652402739964135000|E:\Back UP 26Diciembre2020\WorkSpaceGIT_VAOxygen\Coopidrogas_VoiceDirect\Vocollect Core Library 1.4.1\src\vocollect_core\__init__.py
+vocollect_core.task.dynamic_vocabulary|1652402740025285000|E:\Back UP 26Diciembre2020\WorkSpaceGIT_VAOxygen\Coopidrogas_VoiceDirect\Vocollect Core Library 1.4.1\src\vocollect_core\task\dynamic_vocabulary.py
+vocollect_core_test.unit_tests.test_link_manipulation|1652402740102418000|E:\Back UP 26Diciembre2020\WorkSpaceGIT_VAOxygen\Coopidrogas_VoiceDirect\Vocollect Core Library 1.4.1\test\vocollect_core_test\unit_tests\test_link_manipulation.py
+vocollect_core.utilities.io_wrapper|1652402740040837000|E:\Back UP 26Diciembre2020\WorkSpaceGIT_VAOxygen\Coopidrogas_VoiceDirect\Vocollect Core Library 1.4.1\src\vocollect_core\utilities\io_wrapper.py
+vocollect_core_test.unit_tests.test_mock_functions|1652402740120710000|E:\Back UP 26Diciembre2020\WorkSpaceGIT_VAOxygen\Coopidrogas_VoiceDirect\Vocollect Core Library 1.4.1\test\vocollect_core_test\unit_tests\test_mock_functions.py
+vocollect_core_test.unit_tests.__init__|1652402740067704000|E:\Back UP 26Diciembre2020\WorkSpaceGIT_VAOxygen\Coopidrogas_VoiceDirect\Vocollect Core Library 1.4.1\test\vocollect_core_test\unit_tests\__init__.py
+vocollect_core.dialog.functions|1652402739995283000|E:\Back UP 26Diciembre2020\WorkSpaceGIT_VAOxygen\Coopidrogas_VoiceDirect\Vocollect Core Library 1.4.1\src\vocollect_core\dialog\functions.py
+vocollect_core.scanning|1652402740018294000|E:\Back UP 26Diciembre2020\WorkSpaceGIT_VAOxygen\Coopidrogas_VoiceDirect\Vocollect Core Library 1.4.1\src\vocollect_core\scanning.py
+vocollect_core.dialog.digits_prompt|1652402739978135000|E:\Back UP 26Diciembre2020\WorkSpaceGIT_VAOxygen\Coopidrogas_VoiceDirect\Vocollect Core Library 1.4.1\src\vocollect_core\dialog\digits_prompt.py
+vocollect_core.dialog.ready_prompt|1652402740010292000|E:\Back UP 26Diciembre2020\WorkSpaceGIT_VAOxygen\Coopidrogas_VoiceDirect\Vocollect Core Library 1.4.1\src\vocollect_core\dialog\ready_prompt.py
+vocollect_core_test.unit_tests.test_float_prompt|1652402740090428000|E:\Back UP 26Diciembre2020\WorkSpaceGIT_VAOxygen\Coopidrogas_VoiceDirect\Vocollect Core Library 1.4.1\test\vocollect_core_test\unit_tests\test_float_prompt.py
+vocollect_core.utilities.__init__|1652402740033836000|E:\Back UP 26Diciembre2020\WorkSpaceGIT_VAOxygen\Coopidrogas_VoiceDirect\Vocollect Core Library 1.4.1\src\vocollect_core\utilities\__init__.py
+vocollect_core.dialog.base_dialog|1652402739970137000|E:\Back UP 26Diciembre2020\WorkSpaceGIT_VAOxygen\Coopidrogas_VoiceDirect\Vocollect Core Library 1.4.1\src\vocollect_core\dialog\base_dialog.py
+vocollect_core.utilities.property_file|1652402740054837000|E:\Back UP 26Diciembre2020\WorkSpaceGIT_VAOxygen\Coopidrogas_VoiceDirect\Vocollect Core Library 1.4.1\src\vocollect_core\utilities\property_file.py
+-- END DISKCACHE
+-- START DICTIONARY
+147
+112=TaskRunnerBase.execute
+52=DigitsPrompt
+8=vocollect_core.utilities.util_methods
+87=DigitsPrompt.set_result
+45=BaseDialogExecutor
+99=TaskRunnerBase.__init__
+27=vocollect_core.task.task
+97=DigitsPromptExecutor.__init__
+47=FloatPrompt
+74=ReadyPromptExecutor._create_dialog
+101=Vocabulary.__init__
+107=ListPromptExecutor.__init__
+17=vocollect_core.utilities.obj_factory
+108=IOWrapper.__init__
+113=RunnerTask.__init__
+91=TestFloatPrompt.setUp
+132=TestReadyPrompt
+16=vocollect_core.dialog.float_prompt
+46=IllegalArgumentException
+131=ListPrompt.move_first
+142=TestDiscreteGrammar
+1=vocollect_core.utilities.class_factory
+73=FloatPromptExecutor._create_dialog
+137=TestPromptOnly
+102=ScanMode
+79=ListPrompt.http_post
+82=Properties.__init__
+49=ReadyPrompt
+69=DigitsPromptExecutor._create_dialog
+32=vocollect_core_test.unit_tests.test_prompt_only
+68=BaseDialogExecutor.__init__
+144=TestTaskBase
+19=vocollect_core.utilities.io_wrapper
+30=vocollect_core_test.unit_tests.test_mock_functions
+61=DigitsPrompt.configure_grammar
+105=TaskBase.launch
+5=vocollect_core.scanning
+77=BaseDialog.http_post
+9=vocollect_core_test.unit_tests.test_float_prompt
+78=DigitsPrompt.http_post
+6=vocollect_core.dialog.base_dialog
+104=TaskBase.execute
+59=FloatPrompt.configure_grammar
+88=TestDigitsDialog.setUp
+128=DigitsPromptExecutor.check_scanning_result
+44=BaseDialog
+119=IllegalArgumentException.__init__
+23=vocollect_core_test.unit_tests.test_hint_manipulation
+53=DigitsPromptExecutor
+62=CommaFloatPromptExecutor
+135=TestHintManipulation
+80=ListPrompt.prompt_here
+15=vocollect_core_test.unit_tests.test_list_dialog
+56=TaskBase
+86=DigitsPrompt.set_scan_callback
+106=FloatPromptExecutor.__init__
+20=vocollect_core.task.task_runner
+21=vocollect_core.dialog.list_prompt
+2=vocollect_core.utilities.localization
+31=vocollect_core_test.unit_tests.test_digits_dialogs
+134=TestFloatPrompt
+143=TestMockFunctions
+100=TaskBase.__init__
+58=MyDigitsPrompt
+55=DynamicVocabulary
+90=BaseTestCaseCore.__init__
+95=FloatPromptExecutor.execute_dialog
+72=YesNoPromptExecutor._create_dialog
+126=ReadyPrompt.set_result
+10=vocollect_core_test.unit_tests.test_link_manipulation
+71=YesNoPromptExecutor.__init__
+96=DigitsPrompt.set_anchor_result
+12=vocollect_core.dialog.digits_prompt
+39=ListPromptExecutor
+89=TestScanning.setUp
+70=ListPromptExecutor._create_dialog
+18=vocollect_core.utilities.property_file
+123=ListPrompt.build_list_from_lut
+110=BaseDialog.http_get_template
+54=Vocabulary
+140=BaseDialog.is_timedout
+11=vocollect_core.utilities.pickler
+29=vocollect_core_test.unit_tests.test_ready_prompt
+3=dialogs
+60=DigitsPrompt.__init__
+67=FloatPrompt.__init__
+117=DigitsPrompt.scanned_result
+122=ListPrompt.set_list
+7=vocollect_core_test.base_test_case
+14=vocollect_core_test.unit_tests.test_discrete_grammar
+127=ListPrompt.move_next
+38=ListPrompt
+141=Test
+33=vocollect_core_test.unit_tests.test_localization
+147=DynamicVocabulary.execute_vocab
+84=FloatPrompt.set_decimal_point
+50=BaseTestCaseCore
+129=BaseDialogExecutor.execute_dialog
+34=vocollect_core.dialog.yes_no_prompt
+93=BaseDialog._get_task_dynamic_vocab
+121=FloatPrompt.set_lengths_from_values
+43=TaskRunnerBase
+13=vocollect_core.task.dynamic_vocabulary
+125=TestDialogs
+4=vocollect_core.dialog.functions
+111=TaskBaseSample
+41=RunnerTask
+65=ReadyPromptExecutor
+139=BaseDialog.run
+63=FeedbackFloatPromptExecutor
+81=ReadyPrompt.http_post
+124=TestHintManipulation.setUp
+83=FloatPrompt.set_result
+28=vocollect_core_test.unit_tests.test_taskbase
+94=FloatPrompt.set_anchor_result
+120=FakeLut.__init__
+103=TaskBase.runState
+22=vocollect_core_test.unit_tests.test_factories
+24=vocollect_core_test.unit_tests.test_scanning
+36=YesNoPrompt
+35=Properties
+115=DigitsPrompt.prompt_here
+146=DynamicVocabulary.__init__
+109=DigitsPrompt.set_required
+116=DigitsPrompt.is_valid_value
+76=BaseDialog.__init__
+136=TestScanning
+25=vocollect_core.dialog.prompt_only
+98=DigitsPromptExecutor.execute_dialog
+51=FakeLut
+85=ListPrompt.__init__
+133=TestDigitsDialog
+37=YesNoPromptExecutor
+57=IOWrapper
+114=DigitsPrompt.set_anchors
+64=QuietFloatPromptExecutor
+66=VerboseDigitsPromptExecutor
+138=TestListDialog
+92=Launch.__init__
+130=TaskRunnerBase.startUp
+40=PromptOnly
+42=Launch
+75=TestLinkManipulation
+26=vocollect_core.dialog.ready_prompt
+145=TestFactories
+118=ListPrompt.is_valid_value
+48=FloatPromptExecutor
+-- END DICTIONARY
+-- START TREE 1
+58
+__o|1|__overrides!11@
+_la|1|_language_code!19@
+_re|1|_resources!19@
+all|1|allow_select!26@
+alp|2|ALPHA_NUMERIC!35@ALPHA!35@
+aut|1|auto_trigger_scanner!42@
+bas|3|BaseDialog!49@BaseTestCaseCore!57@BaseDialogExecutor!49@
+cat|1|catalyst_version!66@
+com|1|CommaFloatPromptExecutor!73@
+con|3|CONFIRM_NO_LINK!83@CONFIRM_YES_LINK!83@confirm_entry!26@
+del|1|deletePickle!90@
+dev|1|DEVICE_IS_A730!43@
+dia|3|dialog_time_out!26@dialog_number!51@DIALOG_TIME_OUT_LINK!83@
+dig|2|DigitsPrompt!97@DigitsPromptExecutor!97@
+dyn|1|DynamicVocabulary!105@
+eve|1|event_callback_supported!66@
+ext|1|EXTERNAL_WITH_A730!43@
+fak|2|FakeLut!113@FakeLut!121@
+fee|1|FeedbackFloatPromptExecutor!73@
+fil|3|FILE_LANGUAGE!19@FILE_DEPTH!19@FILE_NAME!19@
+flo|2|FloatPrompt!129@FloatPromptExecutor!129@
+get|7|get_scan_mode!42@get_trigger_vocab!42@get_test_objects!74@get_scan_result!42@get!10@get!138@get_test_objects!114@
+ill|1|IllegalArgumentException!145@
+inv|1|invalid_count_check!26@
+iow|1|IOWrapper!153@
+is_|2|is_barcode_scanned!26@is_valid_value!26@
+ite|1|itext!18@
+key|1|key_value_tag_count!18@
+lau|1|Launch!161@
+lis|4|list_move_first!26@list_has_next!26@ListPrompt!169@ListPromptExecutor!169@
+loa|1|load_prompts!18@
+mul|4|MULTIPLE_SCANS_VERSION!67@multiple_hints_supported!66@multiple_scans_supported!66@MULTIPLE_HINTS_VERSION!67@
+myd|1|MyDigitsPrompt!177@
+nam|1|name!91@
+num|1|NUMERIC!35@
+ove|3|override_catalyst_multi!186@override_catalyst_multi!74@override_catalyst_single!186@
+par|1|parse_scan!194@
+pic|2|pickle_object!90@pickle_obj!91@
+pro|21|prompt_float_comma!74@prompt_float_quiet!74@prompt_list_lut!34@prompt_list_lut_auth!34@prompt_list!34@prompt_digits!34@prompt_digits_required!34@prompt_required!34@prompt_alpha_numeric!34@prompt_float_feedback!74@Properties!145@prompt_words!34@prompt_yes_no!34@prompt_only!34@prompt_ready!34@prompt_yes_no_cancel!34@PromptOnly!201@prompt_float!34@prompt_here!26@prompt_alpha!34@prompt_anchor!34@
+qui|1|QuietFloatPromptExecutor!73@
+rea|3|READY_PROMPT_DEFAULT_LINK!83@ReadyPromptExecutor!209@ReadyPrompt!209@
+reg|1|register_pickle_obj!90@
+res|3|reset_scan!26@reset!26@result_less_than_min_length!26@
+run|1|RunnerTask!161@
+sav|1|save_state!91@
+say|1|say_again_supported!66@
+sca|8|scan_mode_lock!43@scan_results!43@scan_mode!43@scan_data_lock!43@scan_post_process_callback!43@scan_results_exist!42@scan_callback!42@ScanMode!41@
+set|9|set_scan_post_process_callback!42@set_decimal_point!26@set_anchor_result!26@set_trigger_vocab!42@set_override!10@set_trigger_timeout!42@set_result!26@set_override!138@set_scan_mode!42@
+ski|1|skip_prompt!26@
+spe|2|SPEECH_DELAY_ALPHA!51@SPEECH_DELAY_DIGITS!51@
+tas|3|TaskBase!217@TaskBaseSample!225@TaskRunnerBase!161@
+tes|14|TestReadyPrompt!233@TestListDialog!121@TestDialogs!241@TestDigitsDialog!249@TestPromptOnly!257@TestDiscreteGrammar!113@Test!265@TestLinkManipulation!81@TestHintManipulation!185@TestScanning!193@TestTaskBase!225@TestFloatPrompt!73@TestMockFunctions!241@TestFactories!177@
+tim|1|timeout_digit_entry!26@
+tri|3|trigger_scan_timeout!43@trigger_scan!26@trigger_scan_vocab!43@
+ver|1|VerboseDigitsPromptExecutor!249@
+voc|1|Vocabulary!105@
+was|2|WAS_HTTP_POSTED_LINK!83@was_http_posted!26@
+yes|2|YesNoPromptExecutor!273@YesNoPrompt!273@
+-- END TREE
+-- START TREE 2
+113
+__g|2|__getitem__!35&146@__getattr__!35&146@
+__i|26|__init__!36&274@__init__!37&274@__init__!38&170@__init__!39&170@__init__!40&202@__init__!41&162@__init__!42&162@__init__!43&162@__init__!44&50@__init__!45&50@__init__!46&146@__init__!35&146@__init__!47&130@__init__!48&130@__init__!49&210@__init__!50&58@__init__!51&114@__init__!52&98@__init__!53&98@__init__!54&106@__init__!55&106@__init__!56&218@__iter__!57&154@__init__!57&154@__init__!58&178@__init__!51&122@
+__n|1|__next__!57&154@
+__p|1|__parse!35&146@
+__s|3|__str__!46&146@__str__!35&146@__setitem__!35&146@
+_ap|1|_append!43&162@
+_ca|9|_calc_anchor_vocab!59&131@_calc_anchor_vocab!60&99@_calc_anchor_vocab!61&99@_calc_digit_vocab!59&131@_calc_digit_vocab!60&99@_calc_digit_vocab!61&99@_calc_help_prompt!60&99@_calc_help_prompt!61&99@_calc_help_prompt!59&131@
+_co|11|_configure_dialog!62&74@_configure_dialog!63&74@_configure_dialog!64&74@_configure_dialog!45&50@_configure_dialog!48&130@_configure_dialog!53&98@_configure_dialog!37&274@_configure_dialog!39&170@_configure_dialog!65&210@_convert!57&154@_configure_dialog!66&250@
+_cr|6|_create_dialog!37&274@_create_dialog!48&130@_create_dialog!53&98@_create_dialog!45&50@_create_dialog!65&210@_create_dialog!39&170@
+_de|1|_decimal_places!67&131@
+_di|7|_dialog!68&51@_dialog!69&99@_dialog!70&171@_dialog!71&275@_dialog!72&275@_dialog!73&131@_dialog!74&211@
+_fi|1|_final_configuration!44&50@
+_ge|3|_get_task_dynamic_vocab!44&50@_get_dialog_objects!75&82@_get_task_dynamic_vocab!36&274@
+_ht|6|_http_posted!76&51@_http_posted!77&51@_http_posted!78&99@_http_posted!79&171@_http_posted!80&171@_http_posted!81&211@
+_in|1|_insert!43&162@
+_ke|1|_keymap!82&147@
+_la|6|_last_node!83&131@_last_node!84&131@_last_node!85&171@_last_node!60&99@_last_node!86&99@_last_node!87&99@
+_ma|2|_main_runner!43&163@_max_value!67&131@
+_mi|1|_min_value!67&131@
+_mo|3|_move_link!44&50@_mock_catalyst_orig!88&251@_mock_catalyst_orig!89&195@
+_ob|1|_obj!90&59@
+_or|2|_original_catalyst_function!91&75@_origprops!82&147@
+_pr|1|_props!82&147@
+_re|2|_remove_existing_vocab!44&50@_remove_link!44&50@
+_up|2|_update_help!52&98@_update_help!47&130@
+_va|2|_valid!55&106@_validate_vocab_exists!44&50@
+act|1|action!92&163@
+add|5|additional_vocab!76&51@additional_vocab!93&51@additional_vocab!68&51@addState!56&218@add_additional_digits!52&98@
+all|3|allow_select!38&170@allow_only_one!85&171@allow_select_flag!85&171@
+anc|8|anchor_result!94&131@anchor_result!95&131@anchor_result!60&99@anchor_result!86&99@anchor_result!96&99@anchor_result!97&99@anchor_result!98&99@anchor_words!97&99@
+app|1|app_name!99&163@
+bsp|1|bspacere!82&147@
+bui|1|build_list_from_lut!38&170@
+cal|1|callingTask!100&219@
+cha|1|characters!97&99@
+che|1|check_scanning_result!53&98@
+cle|1|clear!50&58@
+con|13|confirm!76&51@confirm_prompt!38&170@configure_grammar!47&130@confirm!101&107@confirm_prompt!52&98@confirm_prompt!44&50@confirm!60&99@confirm!97&99@configure_scanning!52&98@convert_mode!102&42@confirm!85&171@configure_grammar!52&98@confirm_prompt_key!76&51@
+cur|4|current_state!100&219@current_state!103&219@current_state!104&219@current_state!105&219@
+dec|2|decimal_point_char!67&131@decimal_places!106&131@
+des|2|DESC!51&115@description_field!107&171@
+dia|3|dialog!45&50@dialog_time_out_value!76&51@dialog_time_out!44&50@
+dyn|3|dynamic_vocab!76&51@dynamic_vocab!93&51@dynamic_vocab!100&219@
+enc|1|encoding!108&155@
+esc|1|escape!35&146@
+exc|1|exclude_dynamic_vocab!44&51@
+exe|6|execute_dialog!45&50@execute_dialog!48&130@execute_dialog!53&98@execute_vocab!55&106@execute!43&162@execute!56&218@
+exp|4|expected_scans!60&99@expected_scans!109&99@expected!60&99@expected!109&99@
+fin|1|findTask!43&162@
+for|2|form_template!76&51@form_template!110&51@
+fun|4|function!101&107@func2!111&226@func3!111&226@func1!111&226@
+get|8|getProperty!35&146@get_vocabs!55&106@getPropertyDict!35&146@get_result!44&50@get_results!45&50@get_results!53&98@get_main_runner!43&162@get_current_task!43&162@
+glo|2|global_running!99&163@global_running!112&163@
+hel|3|help!60&99@help_message!68&51@help!85&171@
+hin|1|hints!97&99@
+htt|10|http_post!44&50@http_get!38&170@http_get_template!44&50@http_get!49&210@http_post!52&98@http_post!38&170@http_post!49&210@http_get!44&50@http_other_actions_form!44&50@http_get!52&98@
+id|1|id!113&163@
+inc|3|include_cancel!71&275@include_anchor!60&99@include_anchor!114&99@
+ini|2|initialize!43&162@initializeStates!56&218@
+ins|2|insertState!56&218@instance_id!76&51@
+inv|9|invalid_key!67&131@invalid_key!60&99@invalid_count_curr!60&99@invalid_count_curr!115&99@invalid_count_check!52&98@invalid_key!85&171@invalid_count_max!60&99@invalid_scan_key!60&99@invalid_scan_key!97&99@
+is_|12|is_valid_value!52&98@is_valid_range!47&130@is_scanned!60&99@is_scanned!116&99@is_scanned!117&99@is_valid_value!47&130@is_scanned!118&171@is_skip_prompt!55&106@is_timedout!44&50@is_expected_required!60&99@is_expected_required!109&99@is_valid_value!38&170@
+key|2|key_field!107&171@KEY!51&115@
+lau|2|launch!43&162@launch!56&218@
+lin|1|lineno!119&147@
+lis|1|list!35&146@
+loa|1|load!35&146@
+loc|1|local_dynamic!76&51@
+lut|3|lut_data!120&115@lut!107&171@lut_data!120&123@
+max|13|max_length!121&131@max_value!106&131@max_decimal_length!67&131@max_decimal_length!121&131@max_length!76&51@max_discrete_length!60&99@max_length!60&99@max_length!109&99@max_length!97&99@max_discrete_decimal_length!67&131@max_discrete_length!85&171@max_length!122&171@max_length!123&171@
+min|11|min_decimal_length!67&131@min_decimal_length!121&131@min_length!76&51@min_feedback_length!67&131@min_length!121&131@min_value!106&131@min_length!60&99@min_length!109&99@min_length!97&99@min_length!122&171@min_length!123&171@
+mod|1|mode!108&155@
+mov|2|move_next!38&170@move_first!38&170@
+msg|1|msg!119&147@
+mul|1|Multiple!102&43@
+nam|2|name!100&219@name!113&163@
+nex|2|next_state!100&219@next_state!104&219@
+obj|2|obj_counts!90&59@obj!113&163@
+off|1|Off!102&43@
+ori|1|original_catalyst_function!124&187@
+oth|2|othercharre2!82&147@othercharre!82&147@
+pos|1|post_dialog_responses!50&58@
+pre|2|previous_state!100&219@previous_state!104&219@
+pri|1|priority_prompt!68&51@
+pro|7|prompt_here!38&170@processPair!35&146@prompt_here!52&98@prompt_here!44&50@prompt!68&51@propertyNames!35&146@prompt_here!125&242@
+rea|3|readlines!57&154@readline!57&154@read!57&154@
+rec|1|rec!85&171@
+rem|3|remove_digits!52&98@remove_ready!49&210@removeState!56&218@
+rep|1|repeat_list!85&171@
+req|2|required_scanned_values!97&99@required_spoken_values!97&99@
+res|19|result!126&211@result!81&211@result_less_than_min_length!52&98@result_less_than_min_length!47&130@result!127&171@result!79&171@result!86&99@result!87&99@result!117&99@result!78&99@result!128&99@result!98&99@result!84&131@result!95&131@result!71&275@result!76&51@result!77&51@result!68&51@result!129&51@
+ret|2|return_to!43&162@return_to!56&218@
+run|5|runState!56&218@run!52&98@run!44&50@run_app!99&163@run_app!130&163@
+sca|7|scanned!95&131@scanned!97&99@scanned!128&99@scanned!98&99@scanned_result!52&98@scan_mode!60&99@scan_mode!97&99@
+sel|4|select_list!85&171@select_iter!85&171@select_iter!131&171@selection_list!107&171@
+set|36|set_result!49&210@set_final_digit_discrete_links!52&98@setUp!132&234@set_additional_vocab!52&98@set_list!38&170@set_additional_vocab!49&210@set_additional_discrete_links!47&130@set_anchor_result!47&130@setUp!133&250@set_result!52&98@set_help!38&170@set_help!44&50@set_final_digit_discrete_links!47&130@set_hints!52&98@set_discrete_grammar!52&98@set_anchors!52&98@set_discrete_decimal_grammar!47&130@set_additional_discrete_decimal_links!47&130@setUp!134&74@set_scan_callback!52&98@set_help!52&98@set_lengths_from_values!47&130@set_result!47&130@set_required!52&98@setUp!135&186@set_additional_vocab!44&50@setUp!136&194@set_decimal_point!47&130@setUp!137&258@set_final_decimal_discrete_links!47&130@setProperty!35&146@setUp!138&122@set_additional_discrete_links!52&98@set_anchor_result!52&98@set_decimal_loop_link!47&130@set_manual_run!50&58@
+sho|1|should_confirm!44&50@
+sin|1|Single!102&43@
+ski|4|skip_prompt!101&107@skip_prompt!76&51@skip_prompt!139&51@skip_prompt!68&51@
+spe|2|speech_delay!76&51@speech_delay!140&51@
+sta|3|startUp!43&162@states!100&219@state_functions!100&219@
+sto|1|store!35&146@
+tas|2|task_stack!99&163@taskRunner!100&219@
+tea|6|tearDown!50&58@tearDown!133&250@tearDown!134&74@tearDown!141&266@tearDown!135&186@tearDown!136&194@
+tes|53|test_scanning_off!136&194@test_float_grammars!142&114@test_dialog!143&242@test_prompt_anchor!133&250@test_characters!142&114@test_itext!141&266@test_move_link!75&82@test_yes_no_cancel!132&234@test_prompt_float!134&74@test_yes_no_prompt!132&234@test_range!134&74@test_discrete_length_override!133&250@test_hints!133&250@test_discrete_digits!142&114@test_scanning!133&250@test_required_values!142&114@test_scanning_single!136&194@test_prompt_ready_additional_vocab!132&234@test_load_properties!141&266@test_discrete_floats!142&114@test_audio!143&242@test_add_state!144&226@test_factories!145&178@test_multi_move!75&82@test_executor_get_results!133&250@test_remove_link!75&82@test_discrete_additional_vocab!138&122@test_custom_decimal_point!134&74@test_prompt_ready_priority!132&234@test_list_lut_prompt_auth!138&122@test_executor_check_scanning!133&250@test_anchor_words!142&114@test_list_prompt!138&122@test_prompt_ready_skip_prompt!132&234@test_feedback_length!134&74@test_scanning!136&194@test_strlist_hint_single!135&186@test_end_dialog!75&82@test_prompt_digits!133&250@test_separate_required_key!136&194@test_scanning_parse_callback!136&194@test_prompt_required!133&250@test_priority_prompts!133&250@test_discrete_list!142&114@test_scanning_multiple!136&194@test_grammar_loop!142&114@test_prompt_words!132&234@test_discrete_additional_vocab!133&250@test_prompt_only_priority!137&258@test_help!134&74@test_list_lut_prompt!138&122@test_digit_grammars!142&114@test_strlist_hints!135&186@
+tim|3|time_out!71&275@timeout_digit_entry!47&130@timeout_digit_entry!52&98@
+to_|1|to_decimal!47&130@
+une|1|unescape!35&146@
+val|1|validate_prompts!50&58@
+voc|2|vocab!101&107@vocabs!146&107@
+was|1|was_http_posted!44&50@
+wor|2|word!146&107@word!147&107@
+wra|1|wrapped!108&155@
+-- END TREE

@@ -1,0 +1,317 @@
+MODULES_MANAGER_V2
+VVH_ConfigurationMgr|E:\Back UP 26Diciembre2020\eclipse\eclipseVA20(Oxygen)\plugins\com.vocollect.vce.2.2.1_2.2.1.20160712110019\vce\VocollectVoice\VVH_ConfigurationMgr.dll
+VVH_PlatformServices|E:\Back UP 26Diciembre2020\eclipse\eclipseVA20(Oxygen)\plugins\com.vocollect.vce.2.2.1_2.2.1.20160712110019\vce\VocollectVoice\VVH_PlatformServices.dll
+__future__|E:\Back UP 26Diciembre2020\eclipse\eclipseVA20(Oxygen)\plugins\com.vocollect.vce.2.2.1_2.2.1.20160712110019\vce\VocollectVoice\Lib\__future__.py
+__main__
+_abcoll|E:\Back UP 26Diciembre2020\eclipse\eclipseVA20(Oxygen)\plugins\com.vocollect.vce.2.2.1_2.2.1.20160712110019\vce\VocollectVoice\Lib\_abcoll.py
+_ast
+_bisect
+_codecs
+_codecs_cn
+_codecs_hk
+_codecs_iso2022
+_codecs_jp
+_codecs_kr
+_codecs_tw
+_collections
+_compat_pickle|E:\Back UP 26Diciembre2020\eclipse\eclipseVA20(Oxygen)\plugins\com.vocollect.vce.2.2.1_2.2.1.20160712110019\vce\VocollectVoice\Lib\_compat_pickle.py
+_csv
+_functools
+_heapq
+_io
+_json
+_locale
+_lsprof
+_md5
+_multibytecodec
+_random
+_sha1
+_sha256
+_sha512
+_socket|E:\Back UP 26Diciembre2020\eclipse\eclipseVA20(Oxygen)\plugins\com.vocollect.vce.2.2.1_2.2.1.20160712110019\vce\VocollectVoice\Lib\_socket.pyd
+_sre
+_struct
+_subprocess
+_symtable
+_thread
+_voice|E:\Back UP 26Diciembre2020\eclipse\eclipseVA20(Oxygen)\plugins\com.vocollect.vce.2.2.1_2.2.1.20160712110019\vce\VocollectVoice\Lib\_voice.py
+_warnings
+_weakref
+_weakrefset|E:\Back UP 26Diciembre2020\eclipse\eclipseVA20(Oxygen)\plugins\com.vocollect.vce.2.2.1_2.2.1.20160712110019\vce\VocollectVoice\Lib\_weakrefset.py
+abc|E:\Back UP 26Diciembre2020\eclipse\eclipseVA20(Oxygen)\plugins\com.vocollect.vce.2.2.1_2.2.1.20160712110019\vce\VocollectVoice\Lib\abc.py
+array
+atexit
+audioop
+base64|E:\Back UP 26Diciembre2020\eclipse\eclipseVA20(Oxygen)\plugins\com.vocollect.vce.2.2.1_2.2.1.20160712110019\vce\VocollectVoice\Lib\base64.py
+binascii
+bisect|E:\Back UP 26Diciembre2020\eclipse\eclipseVA20(Oxygen)\plugins\com.vocollect.vce.2.2.1_2.2.1.20160712110019\vce\VocollectVoice\Lib\bisect.py
+builtins
+cgi|E:\Back UP 26Diciembre2020\eclipse\eclipseVA20(Oxygen)\plugins\com.vocollect.vce.2.2.1_2.2.1.20160712110019\vce\VocollectVoice\Lib\cgi.py
+cmath
+code|E:\Back UP 26Diciembre2020\eclipse\eclipseVA20(Oxygen)\plugins\com.vocollect.voiceartisan.addons_2.1.3.202010221741\python\IDEDebugger\code.py
+codecs|E:\Back UP 26Diciembre2020\eclipse\eclipseVA20(Oxygen)\plugins\com.vocollect.vce.2.2.1_2.2.1.20160712110019\vce\VocollectVoice\Lib\codecs.py
+codeop|E:\Back UP 26Diciembre2020\eclipse\eclipseVA20(Oxygen)\plugins\com.vocollect.voiceartisan.addons_2.1.3.202010221741\python\IDEDebugger\codeop.py
+collections|E:\Back UP 26Diciembre2020\eclipse\eclipseVA20(Oxygen)\plugins\com.vocollect.vce.2.2.1_2.2.1.20160712110019\vce\VocollectVoice\Lib\collections.py
+compileall|E:\Back UP 26Diciembre2020\eclipse\eclipseVA20(Oxygen)\plugins\com.vocollect.vce.2.2.1_2.2.1.20160712110019\vce\VocollectVoice\Lib\compileall.py
+configparser|E:\Back UP 26Diciembre2020\eclipse\eclipseVA20(Oxygen)\plugins\com.vocollect.vce.2.2.1_2.2.1.20160712110019\vce\VocollectVoice\Lib\configparser.py
+copy|E:\Back UP 26Diciembre2020\eclipse\eclipseVA20(Oxygen)\plugins\com.vocollect.vce.2.2.1_2.2.1.20160712110019\vce\VocollectVoice\Lib\copy.py
+copyreg|E:\Back UP 26Diciembre2020\eclipse\eclipseVA20(Oxygen)\plugins\com.vocollect.vce.2.2.1_2.2.1.20160712110019\vce\VocollectVoice\Lib\copyreg.py
+csv|E:\Back UP 26Diciembre2020\eclipse\eclipseVA20(Oxygen)\plugins\com.vocollect.vce.2.2.1_2.2.1.20160712110019\vce\VocollectVoice\Lib\csv.py
+ctypes.__init__|E:\Back UP 26Diciembre2020\eclipse\eclipseVA20(Oxygen)\plugins\com.vocollect.vce.2.2.1_2.2.1.20160712110019\vce\VocollectVoice\Lib\ctypes\__init__.py
+ctypes._endian|E:\Back UP 26Diciembre2020\eclipse\eclipseVA20(Oxygen)\plugins\com.vocollect.vce.2.2.1_2.2.1.20160712110019\vce\VocollectVoice\Lib\ctypes\_endian.py
+ctypes.util|E:\Back UP 26Diciembre2020\eclipse\eclipseVA20(Oxygen)\plugins\com.vocollect.vce.2.2.1_2.2.1.20160712110019\vce\VocollectVoice\Lib\ctypes\util.py
+ctypes.wintypes|E:\Back UP 26Diciembre2020\eclipse\eclipseVA20(Oxygen)\plugins\com.vocollect.vce.2.2.1_2.2.1.20160712110019\vce\VocollectVoice\Lib\ctypes\wintypes.py
+datetime
+decimal|E:\Back UP 26Diciembre2020\eclipse\eclipseVA20(Oxygen)\plugins\com.vocollect.vce.2.2.1_2.2.1.20160712110019\vce\VocollectVoice\Lib\decimal.py
+difflib|E:\Back UP 26Diciembre2020\eclipse\eclipseVA20(Oxygen)\plugins\com.vocollect.vce.2.2.1_2.2.1.20160712110019\vce\VocollectVoice\Lib\difflib.py
+dis|E:\Back UP 26Diciembre2020\eclipse\eclipseVA20(Oxygen)\plugins\com.vocollect.vce.2.2.1_2.2.1.20160712110019\vce\VocollectVoice\Lib\dis.py
+email.__init__|E:\Back UP 26Diciembre2020\eclipse\eclipseVA20(Oxygen)\plugins\com.vocollect.vce.2.2.1_2.2.1.20160712110019\vce\VocollectVoice\Lib\email\__init__.py
+email._parseaddr|E:\Back UP 26Diciembre2020\eclipse\eclipseVA20(Oxygen)\plugins\com.vocollect.vce.2.2.1_2.2.1.20160712110019\vce\VocollectVoice\Lib\email\_parseaddr.py
+email.base64mime|E:\Back UP 26Diciembre2020\eclipse\eclipseVA20(Oxygen)\plugins\com.vocollect.vce.2.2.1_2.2.1.20160712110019\vce\VocollectVoice\Lib\email\base64mime.py
+email.charset|E:\Back UP 26Diciembre2020\eclipse\eclipseVA20(Oxygen)\plugins\com.vocollect.vce.2.2.1_2.2.1.20160712110019\vce\VocollectVoice\Lib\email\charset.py
+email.encoders|E:\Back UP 26Diciembre2020\eclipse\eclipseVA20(Oxygen)\plugins\com.vocollect.vce.2.2.1_2.2.1.20160712110019\vce\VocollectVoice\Lib\email\encoders.py
+email.errors|E:\Back UP 26Diciembre2020\eclipse\eclipseVA20(Oxygen)\plugins\com.vocollect.vce.2.2.1_2.2.1.20160712110019\vce\VocollectVoice\Lib\email\errors.py
+email.feedparser|E:\Back UP 26Diciembre2020\eclipse\eclipseVA20(Oxygen)\plugins\com.vocollect.vce.2.2.1_2.2.1.20160712110019\vce\VocollectVoice\Lib\email\feedparser.py
+email.generator|E:\Back UP 26Diciembre2020\eclipse\eclipseVA20(Oxygen)\plugins\com.vocollect.vce.2.2.1_2.2.1.20160712110019\vce\VocollectVoice\Lib\email\generator.py
+email.header|E:\Back UP 26Diciembre2020\eclipse\eclipseVA20(Oxygen)\plugins\com.vocollect.vce.2.2.1_2.2.1.20160712110019\vce\VocollectVoice\Lib\email\header.py
+email.iterators|E:\Back UP 26Diciembre2020\eclipse\eclipseVA20(Oxygen)\plugins\com.vocollect.vce.2.2.1_2.2.1.20160712110019\vce\VocollectVoice\Lib\email\iterators.py
+email.message|E:\Back UP 26Diciembre2020\eclipse\eclipseVA20(Oxygen)\plugins\com.vocollect.vce.2.2.1_2.2.1.20160712110019\vce\VocollectVoice\Lib\email\message.py
+email.mime.__init__|E:\Back UP 26Diciembre2020\eclipse\eclipseVA20(Oxygen)\plugins\com.vocollect.vce.2.2.1_2.2.1.20160712110019\vce\VocollectVoice\Lib\email\mime\__init__.py
+email.mime.application|E:\Back UP 26Diciembre2020\eclipse\eclipseVA20(Oxygen)\plugins\com.vocollect.vce.2.2.1_2.2.1.20160712110019\vce\VocollectVoice\Lib\email\mime\application.py
+email.mime.audio|E:\Back UP 26Diciembre2020\eclipse\eclipseVA20(Oxygen)\plugins\com.vocollect.vce.2.2.1_2.2.1.20160712110019\vce\VocollectVoice\Lib\email\mime\audio.py
+email.mime.base|E:\Back UP 26Diciembre2020\eclipse\eclipseVA20(Oxygen)\plugins\com.vocollect.vce.2.2.1_2.2.1.20160712110019\vce\VocollectVoice\Lib\email\mime\base.py
+email.mime.image|E:\Back UP 26Diciembre2020\eclipse\eclipseVA20(Oxygen)\plugins\com.vocollect.vce.2.2.1_2.2.1.20160712110019\vce\VocollectVoice\Lib\email\mime\image.py
+email.mime.message|E:\Back UP 26Diciembre2020\eclipse\eclipseVA20(Oxygen)\plugins\com.vocollect.vce.2.2.1_2.2.1.20160712110019\vce\VocollectVoice\Lib\email\mime\message.py
+email.mime.multipart|E:\Back UP 26Diciembre2020\eclipse\eclipseVA20(Oxygen)\plugins\com.vocollect.vce.2.2.1_2.2.1.20160712110019\vce\VocollectVoice\Lib\email\mime\multipart.py
+email.mime.nonmultipart|E:\Back UP 26Diciembre2020\eclipse\eclipseVA20(Oxygen)\plugins\com.vocollect.vce.2.2.1_2.2.1.20160712110019\vce\VocollectVoice\Lib\email\mime\nonmultipart.py
+email.mime.text|E:\Back UP 26Diciembre2020\eclipse\eclipseVA20(Oxygen)\plugins\com.vocollect.vce.2.2.1_2.2.1.20160712110019\vce\VocollectVoice\Lib\email\mime\text.py
+email.parser|E:\Back UP 26Diciembre2020\eclipse\eclipseVA20(Oxygen)\plugins\com.vocollect.vce.2.2.1_2.2.1.20160712110019\vce\VocollectVoice\Lib\email\parser.py
+email.quoprimime|E:\Back UP 26Diciembre2020\eclipse\eclipseVA20(Oxygen)\plugins\com.vocollect.vce.2.2.1_2.2.1.20160712110019\vce\VocollectVoice\Lib\email\quoprimime.py
+email.utils|E:\Back UP 26Diciembre2020\eclipse\eclipseVA20(Oxygen)\plugins\com.vocollect.vce.2.2.1_2.2.1.20160712110019\vce\VocollectVoice\Lib\email\utils.py
+encodings.__init__|E:\Back UP 26Diciembre2020\eclipse\eclipseVA20(Oxygen)\plugins\com.vocollect.vce.2.2.1_2.2.1.20160712110019\vce\VocollectVoice\Lib\encodings\__init__.py
+encodings.aliases|E:\Back UP 26Diciembre2020\eclipse\eclipseVA20(Oxygen)\plugins\com.vocollect.vce.2.2.1_2.2.1.20160712110019\vce\VocollectVoice\Lib\encodings\aliases.py
+encodings.ascii|E:\Back UP 26Diciembre2020\eclipse\eclipseVA20(Oxygen)\plugins\com.vocollect.vce.2.2.1_2.2.1.20160712110019\vce\VocollectVoice\Lib\encodings\ascii.py
+encodings.big5|E:\Back UP 26Diciembre2020\eclipse\eclipseVA20(Oxygen)\plugins\com.vocollect.vce.2.2.1_2.2.1.20160712110019\vce\VocollectVoice\Lib\encodings\big5.py
+encodings.big5hkscs|E:\Back UP 26Diciembre2020\eclipse\eclipseVA20(Oxygen)\plugins\com.vocollect.vce.2.2.1_2.2.1.20160712110019\vce\VocollectVoice\Lib\encodings\big5hkscs.py
+encodings.charmap|E:\Back UP 26Diciembre2020\eclipse\eclipseVA20(Oxygen)\plugins\com.vocollect.vce.2.2.1_2.2.1.20160712110019\vce\VocollectVoice\Lib\encodings\charmap.py
+encodings.cp037|E:\Back UP 26Diciembre2020\eclipse\eclipseVA20(Oxygen)\plugins\com.vocollect.vce.2.2.1_2.2.1.20160712110019\vce\VocollectVoice\Lib\encodings\cp037.py
+encodings.cp1006|E:\Back UP 26Diciembre2020\eclipse\eclipseVA20(Oxygen)\plugins\com.vocollect.vce.2.2.1_2.2.1.20160712110019\vce\VocollectVoice\Lib\encodings\cp1006.py
+encodings.cp1026|E:\Back UP 26Diciembre2020\eclipse\eclipseVA20(Oxygen)\plugins\com.vocollect.vce.2.2.1_2.2.1.20160712110019\vce\VocollectVoice\Lib\encodings\cp1026.py
+encodings.cp1140|E:\Back UP 26Diciembre2020\eclipse\eclipseVA20(Oxygen)\plugins\com.vocollect.vce.2.2.1_2.2.1.20160712110019\vce\VocollectVoice\Lib\encodings\cp1140.py
+encodings.cp1250|E:\Back UP 26Diciembre2020\eclipse\eclipseVA20(Oxygen)\plugins\com.vocollect.vce.2.2.1_2.2.1.20160712110019\vce\VocollectVoice\Lib\encodings\cp1250.py
+encodings.cp1251|E:\Back UP 26Diciembre2020\eclipse\eclipseVA20(Oxygen)\plugins\com.vocollect.vce.2.2.1_2.2.1.20160712110019\vce\VocollectVoice\Lib\encodings\cp1251.py
+encodings.cp1252|E:\Back UP 26Diciembre2020\eclipse\eclipseVA20(Oxygen)\plugins\com.vocollect.vce.2.2.1_2.2.1.20160712110019\vce\VocollectVoice\Lib\encodings\cp1252.py
+encodings.cp1253|E:\Back UP 26Diciembre2020\eclipse\eclipseVA20(Oxygen)\plugins\com.vocollect.vce.2.2.1_2.2.1.20160712110019\vce\VocollectVoice\Lib\encodings\cp1253.py
+encodings.cp1254|E:\Back UP 26Diciembre2020\eclipse\eclipseVA20(Oxygen)\plugins\com.vocollect.vce.2.2.1_2.2.1.20160712110019\vce\VocollectVoice\Lib\encodings\cp1254.py
+encodings.cp1255|E:\Back UP 26Diciembre2020\eclipse\eclipseVA20(Oxygen)\plugins\com.vocollect.vce.2.2.1_2.2.1.20160712110019\vce\VocollectVoice\Lib\encodings\cp1255.py
+encodings.cp1256|E:\Back UP 26Diciembre2020\eclipse\eclipseVA20(Oxygen)\plugins\com.vocollect.vce.2.2.1_2.2.1.20160712110019\vce\VocollectVoice\Lib\encodings\cp1256.py
+encodings.cp1257|E:\Back UP 26Diciembre2020\eclipse\eclipseVA20(Oxygen)\plugins\com.vocollect.vce.2.2.1_2.2.1.20160712110019\vce\VocollectVoice\Lib\encodings\cp1257.py
+encodings.cp1258|E:\Back UP 26Diciembre2020\eclipse\eclipseVA20(Oxygen)\plugins\com.vocollect.vce.2.2.1_2.2.1.20160712110019\vce\VocollectVoice\Lib\encodings\cp1258.py
+encodings.cp424|E:\Back UP 26Diciembre2020\eclipse\eclipseVA20(Oxygen)\plugins\com.vocollect.vce.2.2.1_2.2.1.20160712110019\vce\VocollectVoice\Lib\encodings\cp424.py
+encodings.cp437|E:\Back UP 26Diciembre2020\eclipse\eclipseVA20(Oxygen)\plugins\com.vocollect.vce.2.2.1_2.2.1.20160712110019\vce\VocollectVoice\Lib\encodings\cp437.py
+encodings.cp500|E:\Back UP 26Diciembre2020\eclipse\eclipseVA20(Oxygen)\plugins\com.vocollect.vce.2.2.1_2.2.1.20160712110019\vce\VocollectVoice\Lib\encodings\cp500.py
+encodings.cp737|E:\Back UP 26Diciembre2020\eclipse\eclipseVA20(Oxygen)\plugins\com.vocollect.vce.2.2.1_2.2.1.20160712110019\vce\VocollectVoice\Lib\encodings\cp737.py
+encodings.cp775|E:\Back UP 26Diciembre2020\eclipse\eclipseVA20(Oxygen)\plugins\com.vocollect.vce.2.2.1_2.2.1.20160712110019\vce\VocollectVoice\Lib\encodings\cp775.py
+encodings.cp850|E:\Back UP 26Diciembre2020\eclipse\eclipseVA20(Oxygen)\plugins\com.vocollect.vce.2.2.1_2.2.1.20160712110019\vce\VocollectVoice\Lib\encodings\cp850.py
+encodings.cp852|E:\Back UP 26Diciembre2020\eclipse\eclipseVA20(Oxygen)\plugins\com.vocollect.vce.2.2.1_2.2.1.20160712110019\vce\VocollectVoice\Lib\encodings\cp852.py
+encodings.cp855|E:\Back UP 26Diciembre2020\eclipse\eclipseVA20(Oxygen)\plugins\com.vocollect.vce.2.2.1_2.2.1.20160712110019\vce\VocollectVoice\Lib\encodings\cp855.py
+encodings.cp856|E:\Back UP 26Diciembre2020\eclipse\eclipseVA20(Oxygen)\plugins\com.vocollect.vce.2.2.1_2.2.1.20160712110019\vce\VocollectVoice\Lib\encodings\cp856.py
+encodings.cp857|E:\Back UP 26Diciembre2020\eclipse\eclipseVA20(Oxygen)\plugins\com.vocollect.vce.2.2.1_2.2.1.20160712110019\vce\VocollectVoice\Lib\encodings\cp857.py
+encodings.cp860|E:\Back UP 26Diciembre2020\eclipse\eclipseVA20(Oxygen)\plugins\com.vocollect.vce.2.2.1_2.2.1.20160712110019\vce\VocollectVoice\Lib\encodings\cp860.py
+encodings.cp861|E:\Back UP 26Diciembre2020\eclipse\eclipseVA20(Oxygen)\plugins\com.vocollect.vce.2.2.1_2.2.1.20160712110019\vce\VocollectVoice\Lib\encodings\cp861.py
+encodings.cp862|E:\Back UP 26Diciembre2020\eclipse\eclipseVA20(Oxygen)\plugins\com.vocollect.vce.2.2.1_2.2.1.20160712110019\vce\VocollectVoice\Lib\encodings\cp862.py
+encodings.cp863|E:\Back UP 26Diciembre2020\eclipse\eclipseVA20(Oxygen)\plugins\com.vocollect.vce.2.2.1_2.2.1.20160712110019\vce\VocollectVoice\Lib\encodings\cp863.py
+encodings.cp864|E:\Back UP 26Diciembre2020\eclipse\eclipseVA20(Oxygen)\plugins\com.vocollect.vce.2.2.1_2.2.1.20160712110019\vce\VocollectVoice\Lib\encodings\cp864.py
+encodings.cp865|E:\Back UP 26Diciembre2020\eclipse\eclipseVA20(Oxygen)\plugins\com.vocollect.vce.2.2.1_2.2.1.20160712110019\vce\VocollectVoice\Lib\encodings\cp865.py
+encodings.cp866|E:\Back UP 26Diciembre2020\eclipse\eclipseVA20(Oxygen)\plugins\com.vocollect.vce.2.2.1_2.2.1.20160712110019\vce\VocollectVoice\Lib\encodings\cp866.py
+encodings.cp869|E:\Back UP 26Diciembre2020\eclipse\eclipseVA20(Oxygen)\plugins\com.vocollect.vce.2.2.1_2.2.1.20160712110019\vce\VocollectVoice\Lib\encodings\cp869.py
+encodings.cp874|E:\Back UP 26Diciembre2020\eclipse\eclipseVA20(Oxygen)\plugins\com.vocollect.vce.2.2.1_2.2.1.20160712110019\vce\VocollectVoice\Lib\encodings\cp874.py
+encodings.cp875|E:\Back UP 26Diciembre2020\eclipse\eclipseVA20(Oxygen)\plugins\com.vocollect.vce.2.2.1_2.2.1.20160712110019\vce\VocollectVoice\Lib\encodings\cp875.py
+encodings.cp932|E:\Back UP 26Diciembre2020\eclipse\eclipseVA20(Oxygen)\plugins\com.vocollect.vce.2.2.1_2.2.1.20160712110019\vce\VocollectVoice\Lib\encodings\cp932.py
+encodings.cp949|E:\Back UP 26Diciembre2020\eclipse\eclipseVA20(Oxygen)\plugins\com.vocollect.vce.2.2.1_2.2.1.20160712110019\vce\VocollectVoice\Lib\encodings\cp949.py
+encodings.cp950|E:\Back UP 26Diciembre2020\eclipse\eclipseVA20(Oxygen)\plugins\com.vocollect.vce.2.2.1_2.2.1.20160712110019\vce\VocollectVoice\Lib\encodings\cp950.py
+encodings.euc_jis_2004|E:\Back UP 26Diciembre2020\eclipse\eclipseVA20(Oxygen)\plugins\com.vocollect.vce.2.2.1_2.2.1.20160712110019\vce\VocollectVoice\Lib\encodings\euc_jis_2004.py
+encodings.euc_jisx0213|E:\Back UP 26Diciembre2020\eclipse\eclipseVA20(Oxygen)\plugins\com.vocollect.vce.2.2.1_2.2.1.20160712110019\vce\VocollectVoice\Lib\encodings\euc_jisx0213.py
+encodings.euc_jp|E:\Back UP 26Diciembre2020\eclipse\eclipseVA20(Oxygen)\plugins\com.vocollect.vce.2.2.1_2.2.1.20160712110019\vce\VocollectVoice\Lib\encodings\euc_jp.py
+encodings.euc_kr|E:\Back UP 26Diciembre2020\eclipse\eclipseVA20(Oxygen)\plugins\com.vocollect.vce.2.2.1_2.2.1.20160712110019\vce\VocollectVoice\Lib\encodings\euc_kr.py
+encodings.gb18030|E:\Back UP 26Diciembre2020\eclipse\eclipseVA20(Oxygen)\plugins\com.vocollect.vce.2.2.1_2.2.1.20160712110019\vce\VocollectVoice\Lib\encodings\gb18030.py
+encodings.gb2312|E:\Back UP 26Diciembre2020\eclipse\eclipseVA20(Oxygen)\plugins\com.vocollect.vce.2.2.1_2.2.1.20160712110019\vce\VocollectVoice\Lib\encodings\gb2312.py
+encodings.gbk|E:\Back UP 26Diciembre2020\eclipse\eclipseVA20(Oxygen)\plugins\com.vocollect.vce.2.2.1_2.2.1.20160712110019\vce\VocollectVoice\Lib\encodings\gbk.py
+encodings.hp_roman8|E:\Back UP 26Diciembre2020\eclipse\eclipseVA20(Oxygen)\plugins\com.vocollect.vce.2.2.1_2.2.1.20160712110019\vce\VocollectVoice\Lib\encodings\hp_roman8.py
+encodings.hz|E:\Back UP 26Diciembre2020\eclipse\eclipseVA20(Oxygen)\plugins\com.vocollect.vce.2.2.1_2.2.1.20160712110019\vce\VocollectVoice\Lib\encodings\hz.py
+encodings.idna|E:\Back UP 26Diciembre2020\eclipse\eclipseVA20(Oxygen)\plugins\com.vocollect.vce.2.2.1_2.2.1.20160712110019\vce\VocollectVoice\Lib\encodings\idna.py
+encodings.iso2022_jp|E:\Back UP 26Diciembre2020\eclipse\eclipseVA20(Oxygen)\plugins\com.vocollect.vce.2.2.1_2.2.1.20160712110019\vce\VocollectVoice\Lib\encodings\iso2022_jp.py
+encodings.iso2022_jp_1|E:\Back UP 26Diciembre2020\eclipse\eclipseVA20(Oxygen)\plugins\com.vocollect.vce.2.2.1_2.2.1.20160712110019\vce\VocollectVoice\Lib\encodings\iso2022_jp_1.py
+encodings.iso2022_jp_2|E:\Back UP 26Diciembre2020\eclipse\eclipseVA20(Oxygen)\plugins\com.vocollect.vce.2.2.1_2.2.1.20160712110019\vce\VocollectVoice\Lib\encodings\iso2022_jp_2.py
+encodings.iso2022_jp_2004|E:\Back UP 26Diciembre2020\eclipse\eclipseVA20(Oxygen)\plugins\com.vocollect.vce.2.2.1_2.2.1.20160712110019\vce\VocollectVoice\Lib\encodings\iso2022_jp_2004.py
+encodings.iso2022_jp_3|E:\Back UP 26Diciembre2020\eclipse\eclipseVA20(Oxygen)\plugins\com.vocollect.vce.2.2.1_2.2.1.20160712110019\vce\VocollectVoice\Lib\encodings\iso2022_jp_3.py
+encodings.iso2022_jp_ext|E:\Back UP 26Diciembre2020\eclipse\eclipseVA20(Oxygen)\plugins\com.vocollect.vce.2.2.1_2.2.1.20160712110019\vce\VocollectVoice\Lib\encodings\iso2022_jp_ext.py
+encodings.iso2022_kr|E:\Back UP 26Diciembre2020\eclipse\eclipseVA20(Oxygen)\plugins\com.vocollect.vce.2.2.1_2.2.1.20160712110019\vce\VocollectVoice\Lib\encodings\iso2022_kr.py
+encodings.iso8859_1|E:\Back UP 26Diciembre2020\eclipse\eclipseVA20(Oxygen)\plugins\com.vocollect.vce.2.2.1_2.2.1.20160712110019\vce\VocollectVoice\Lib\encodings\iso8859_1.py
+encodings.iso8859_10|E:\Back UP 26Diciembre2020\eclipse\eclipseVA20(Oxygen)\plugins\com.vocollect.vce.2.2.1_2.2.1.20160712110019\vce\VocollectVoice\Lib\encodings\iso8859_10.py
+encodings.iso8859_11|E:\Back UP 26Diciembre2020\eclipse\eclipseVA20(Oxygen)\plugins\com.vocollect.vce.2.2.1_2.2.1.20160712110019\vce\VocollectVoice\Lib\encodings\iso8859_11.py
+encodings.iso8859_13|E:\Back UP 26Diciembre2020\eclipse\eclipseVA20(Oxygen)\plugins\com.vocollect.vce.2.2.1_2.2.1.20160712110019\vce\VocollectVoice\Lib\encodings\iso8859_13.py
+encodings.iso8859_14|E:\Back UP 26Diciembre2020\eclipse\eclipseVA20(Oxygen)\plugins\com.vocollect.vce.2.2.1_2.2.1.20160712110019\vce\VocollectVoice\Lib\encodings\iso8859_14.py
+encodings.iso8859_15|E:\Back UP 26Diciembre2020\eclipse\eclipseVA20(Oxygen)\plugins\com.vocollect.vce.2.2.1_2.2.1.20160712110019\vce\VocollectVoice\Lib\encodings\iso8859_15.py
+encodings.iso8859_16|E:\Back UP 26Diciembre2020\eclipse\eclipseVA20(Oxygen)\plugins\com.vocollect.vce.2.2.1_2.2.1.20160712110019\vce\VocollectVoice\Lib\encodings\iso8859_16.py
+encodings.iso8859_2|E:\Back UP 26Diciembre2020\eclipse\eclipseVA20(Oxygen)\plugins\com.vocollect.vce.2.2.1_2.2.1.20160712110019\vce\VocollectVoice\Lib\encodings\iso8859_2.py
+encodings.iso8859_3|E:\Back UP 26Diciembre2020\eclipse\eclipseVA20(Oxygen)\plugins\com.vocollect.vce.2.2.1_2.2.1.20160712110019\vce\VocollectVoice\Lib\encodings\iso8859_3.py
+encodings.iso8859_4|E:\Back UP 26Diciembre2020\eclipse\eclipseVA20(Oxygen)\plugins\com.vocollect.vce.2.2.1_2.2.1.20160712110019\vce\VocollectVoice\Lib\encodings\iso8859_4.py
+encodings.iso8859_5|E:\Back UP 26Diciembre2020\eclipse\eclipseVA20(Oxygen)\plugins\com.vocollect.vce.2.2.1_2.2.1.20160712110019\vce\VocollectVoice\Lib\encodings\iso8859_5.py
+encodings.iso8859_6|E:\Back UP 26Diciembre2020\eclipse\eclipseVA20(Oxygen)\plugins\com.vocollect.vce.2.2.1_2.2.1.20160712110019\vce\VocollectVoice\Lib\encodings\iso8859_6.py
+encodings.iso8859_7|E:\Back UP 26Diciembre2020\eclipse\eclipseVA20(Oxygen)\plugins\com.vocollect.vce.2.2.1_2.2.1.20160712110019\vce\VocollectVoice\Lib\encodings\iso8859_7.py
+encodings.iso8859_8|E:\Back UP 26Diciembre2020\eclipse\eclipseVA20(Oxygen)\plugins\com.vocollect.vce.2.2.1_2.2.1.20160712110019\vce\VocollectVoice\Lib\encodings\iso8859_8.py
+encodings.iso8859_9|E:\Back UP 26Diciembre2020\eclipse\eclipseVA20(Oxygen)\plugins\com.vocollect.vce.2.2.1_2.2.1.20160712110019\vce\VocollectVoice\Lib\encodings\iso8859_9.py
+encodings.johab|E:\Back UP 26Diciembre2020\eclipse\eclipseVA20(Oxygen)\plugins\com.vocollect.vce.2.2.1_2.2.1.20160712110019\vce\VocollectVoice\Lib\encodings\johab.py
+encodings.koi8_r|E:\Back UP 26Diciembre2020\eclipse\eclipseVA20(Oxygen)\plugins\com.vocollect.vce.2.2.1_2.2.1.20160712110019\vce\VocollectVoice\Lib\encodings\koi8_r.py
+encodings.koi8_u|E:\Back UP 26Diciembre2020\eclipse\eclipseVA20(Oxygen)\plugins\com.vocollect.vce.2.2.1_2.2.1.20160712110019\vce\VocollectVoice\Lib\encodings\koi8_u.py
+encodings.latin_1|E:\Back UP 26Diciembre2020\eclipse\eclipseVA20(Oxygen)\plugins\com.vocollect.vce.2.2.1_2.2.1.20160712110019\vce\VocollectVoice\Lib\encodings\latin_1.py
+encodings.mac_arabic|E:\Back UP 26Diciembre2020\eclipse\eclipseVA20(Oxygen)\plugins\com.vocollect.vce.2.2.1_2.2.1.20160712110019\vce\VocollectVoice\Lib\encodings\mac_arabic.py
+encodings.mac_centeuro|E:\Back UP 26Diciembre2020\eclipse\eclipseVA20(Oxygen)\plugins\com.vocollect.vce.2.2.1_2.2.1.20160712110019\vce\VocollectVoice\Lib\encodings\mac_centeuro.py
+encodings.mac_croatian|E:\Back UP 26Diciembre2020\eclipse\eclipseVA20(Oxygen)\plugins\com.vocollect.vce.2.2.1_2.2.1.20160712110019\vce\VocollectVoice\Lib\encodings\mac_croatian.py
+encodings.mac_cyrillic|E:\Back UP 26Diciembre2020\eclipse\eclipseVA20(Oxygen)\plugins\com.vocollect.vce.2.2.1_2.2.1.20160712110019\vce\VocollectVoice\Lib\encodings\mac_cyrillic.py
+encodings.mac_farsi|E:\Back UP 26Diciembre2020\eclipse\eclipseVA20(Oxygen)\plugins\com.vocollect.vce.2.2.1_2.2.1.20160712110019\vce\VocollectVoice\Lib\encodings\mac_farsi.py
+encodings.mac_greek|E:\Back UP 26Diciembre2020\eclipse\eclipseVA20(Oxygen)\plugins\com.vocollect.vce.2.2.1_2.2.1.20160712110019\vce\VocollectVoice\Lib\encodings\mac_greek.py
+encodings.mac_iceland|E:\Back UP 26Diciembre2020\eclipse\eclipseVA20(Oxygen)\plugins\com.vocollect.vce.2.2.1_2.2.1.20160712110019\vce\VocollectVoice\Lib\encodings\mac_iceland.py
+encodings.mac_latin2|E:\Back UP 26Diciembre2020\eclipse\eclipseVA20(Oxygen)\plugins\com.vocollect.vce.2.2.1_2.2.1.20160712110019\vce\VocollectVoice\Lib\encodings\mac_latin2.py
+encodings.mac_roman|E:\Back UP 26Diciembre2020\eclipse\eclipseVA20(Oxygen)\plugins\com.vocollect.vce.2.2.1_2.2.1.20160712110019\vce\VocollectVoice\Lib\encodings\mac_roman.py
+encodings.mac_romanian|E:\Back UP 26Diciembre2020\eclipse\eclipseVA20(Oxygen)\plugins\com.vocollect.vce.2.2.1_2.2.1.20160712110019\vce\VocollectVoice\Lib\encodings\mac_romanian.py
+encodings.mac_turkish|E:\Back UP 26Diciembre2020\eclipse\eclipseVA20(Oxygen)\plugins\com.vocollect.vce.2.2.1_2.2.1.20160712110019\vce\VocollectVoice\Lib\encodings\mac_turkish.py
+encodings.mbcs|E:\Back UP 26Diciembre2020\eclipse\eclipseVA20(Oxygen)\plugins\com.vocollect.vce.2.2.1_2.2.1.20160712110019\vce\VocollectVoice\Lib\encodings\mbcs.py
+encodings.palmos|E:\Back UP 26Diciembre2020\eclipse\eclipseVA20(Oxygen)\plugins\com.vocollect.vce.2.2.1_2.2.1.20160712110019\vce\VocollectVoice\Lib\encodings\palmos.py
+encodings.ptcp154|E:\Back UP 26Diciembre2020\eclipse\eclipseVA20(Oxygen)\plugins\com.vocollect.vce.2.2.1_2.2.1.20160712110019\vce\VocollectVoice\Lib\encodings\ptcp154.py
+encodings.punycode|E:\Back UP 26Diciembre2020\eclipse\eclipseVA20(Oxygen)\plugins\com.vocollect.vce.2.2.1_2.2.1.20160712110019\vce\VocollectVoice\Lib\encodings\punycode.py
+encodings.raw_unicode_escape|E:\Back UP 26Diciembre2020\eclipse\eclipseVA20(Oxygen)\plugins\com.vocollect.vce.2.2.1_2.2.1.20160712110019\vce\VocollectVoice\Lib\encodings\raw_unicode_escape.py
+encodings.shift_jis|E:\Back UP 26Diciembre2020\eclipse\eclipseVA20(Oxygen)\plugins\com.vocollect.vce.2.2.1_2.2.1.20160712110019\vce\VocollectVoice\Lib\encodings\shift_jis.py
+encodings.shift_jis_2004|E:\Back UP 26Diciembre2020\eclipse\eclipseVA20(Oxygen)\plugins\com.vocollect.vce.2.2.1_2.2.1.20160712110019\vce\VocollectVoice\Lib\encodings\shift_jis_2004.py
+encodings.shift_jisx0213|E:\Back UP 26Diciembre2020\eclipse\eclipseVA20(Oxygen)\plugins\com.vocollect.vce.2.2.1_2.2.1.20160712110019\vce\VocollectVoice\Lib\encodings\shift_jisx0213.py
+encodings.tis_620|E:\Back UP 26Diciembre2020\eclipse\eclipseVA20(Oxygen)\plugins\com.vocollect.vce.2.2.1_2.2.1.20160712110019\vce\VocollectVoice\Lib\encodings\tis_620.py
+encodings.undefined|E:\Back UP 26Diciembre2020\eclipse\eclipseVA20(Oxygen)\plugins\com.vocollect.vce.2.2.1_2.2.1.20160712110019\vce\VocollectVoice\Lib\encodings\undefined.py
+encodings.unicode_escape|E:\Back UP 26Diciembre2020\eclipse\eclipseVA20(Oxygen)\plugins\com.vocollect.vce.2.2.1_2.2.1.20160712110019\vce\VocollectVoice\Lib\encodings\unicode_escape.py
+encodings.unicode_internal|E:\Back UP 26Diciembre2020\eclipse\eclipseVA20(Oxygen)\plugins\com.vocollect.vce.2.2.1_2.2.1.20160712110019\vce\VocollectVoice\Lib\encodings\unicode_internal.py
+encodings.utf_16|E:\Back UP 26Diciembre2020\eclipse\eclipseVA20(Oxygen)\plugins\com.vocollect.vce.2.2.1_2.2.1.20160712110019\vce\VocollectVoice\Lib\encodings\utf_16.py
+encodings.utf_16_be|E:\Back UP 26Diciembre2020\eclipse\eclipseVA20(Oxygen)\plugins\com.vocollect.vce.2.2.1_2.2.1.20160712110019\vce\VocollectVoice\Lib\encodings\utf_16_be.py
+encodings.utf_16_le|E:\Back UP 26Diciembre2020\eclipse\eclipseVA20(Oxygen)\plugins\com.vocollect.vce.2.2.1_2.2.1.20160712110019\vce\VocollectVoice\Lib\encodings\utf_16_le.py
+encodings.utf_32|E:\Back UP 26Diciembre2020\eclipse\eclipseVA20(Oxygen)\plugins\com.vocollect.vce.2.2.1_2.2.1.20160712110019\vce\VocollectVoice\Lib\encodings\utf_32.py
+encodings.utf_32_be|E:\Back UP 26Diciembre2020\eclipse\eclipseVA20(Oxygen)\plugins\com.vocollect.vce.2.2.1_2.2.1.20160712110019\vce\VocollectVoice\Lib\encodings\utf_32_be.py
+encodings.utf_32_le|E:\Back UP 26Diciembre2020\eclipse\eclipseVA20(Oxygen)\plugins\com.vocollect.vce.2.2.1_2.2.1.20160712110019\vce\VocollectVoice\Lib\encodings\utf_32_le.py
+encodings.utf_7|E:\Back UP 26Diciembre2020\eclipse\eclipseVA20(Oxygen)\plugins\com.vocollect.vce.2.2.1_2.2.1.20160712110019\vce\VocollectVoice\Lib\encodings\utf_7.py
+encodings.utf_8|E:\Back UP 26Diciembre2020\eclipse\eclipseVA20(Oxygen)\plugins\com.vocollect.vce.2.2.1_2.2.1.20160712110019\vce\VocollectVoice\Lib\encodings\utf_8.py
+encodings.utf_8_sig|E:\Back UP 26Diciembre2020\eclipse\eclipseVA20(Oxygen)\plugins\com.vocollect.vce.2.2.1_2.2.1.20160712110019\vce\VocollectVoice\Lib\encodings\utf_8_sig.py
+errno
+fnmatch|E:\Back UP 26Diciembre2020\eclipse\eclipseVA20(Oxygen)\plugins\com.vocollect.vce.2.2.1_2.2.1.20160712110019\vce\VocollectVoice\Lib\fnmatch.py
+functools|E:\Back UP 26Diciembre2020\eclipse\eclipseVA20(Oxygen)\plugins\com.vocollect.vce.2.2.1_2.2.1.20160712110019\vce\VocollectVoice\Lib\functools.py
+gc
+genericpath|E:\Back UP 26Diciembre2020\eclipse\eclipseVA20(Oxygen)\plugins\com.vocollect.vce.2.2.1_2.2.1.20160712110019\vce\VocollectVoice\Lib\genericpath.py
+getopt|E:\Back UP 26Diciembre2020\eclipse\eclipseVA20(Oxygen)\plugins\com.vocollect.vce.2.2.1_2.2.1.20160712110019\vce\VocollectVoice\Lib\getopt.py
+glob|E:\Back UP 26Diciembre2020\eclipse\eclipseVA20(Oxygen)\plugins\com.vocollect.vce.2.2.1_2.2.1.20160712110019\vce\VocollectVoice\Lib\glob.py
+hashlib|E:\Back UP 26Diciembre2020\eclipse\eclipseVA20(Oxygen)\plugins\com.vocollect.vce.2.2.1_2.2.1.20160712110019\vce\VocollectVoice\Lib\hashlib.py
+heapq|E:\Back UP 26Diciembre2020\eclipse\eclipseVA20(Oxygen)\plugins\com.vocollect.vce.2.2.1_2.2.1.20160712110019\vce\VocollectVoice\Lib\heapq.py
+http.__init__|E:\Back UP 26Diciembre2020\eclipse\eclipseVA20(Oxygen)\plugins\com.vocollect.vce.2.2.1_2.2.1.20160712110019\vce\VocollectVoice\Lib\http\__init__.py
+http.client|E:\Back UP 26Diciembre2020\eclipse\eclipseVA20(Oxygen)\plugins\com.vocollect.vce.2.2.1_2.2.1.20160712110019\vce\VocollectVoice\Lib\http\client.py
+http.cookiejar|E:\Back UP 26Diciembre2020\eclipse\eclipseVA20(Oxygen)\plugins\com.vocollect.vce.2.2.1_2.2.1.20160712110019\vce\VocollectVoice\Lib\http\cookiejar.py
+http.cookies|E:\Back UP 26Diciembre2020\eclipse\eclipseVA20(Oxygen)\plugins\com.vocollect.vce.2.2.1_2.2.1.20160712110019\vce\VocollectVoice\Lib\http\cookies.py
+http.server|E:\Back UP 26Diciembre2020\eclipse\eclipseVA20(Oxygen)\plugins\com.vocollect.vce.2.2.1_2.2.1.20160712110019\vce\VocollectVoice\Lib\http\server.py
+imp
+inspect|E:\Back UP 26Diciembre2020\eclipse\eclipseVA20(Oxygen)\plugins\com.vocollect.vce.2.2.1_2.2.1.20160712110019\vce\VocollectVoice\Lib\inspect.py
+io|E:\Back UP 26Diciembre2020\eclipse\eclipseVA20(Oxygen)\plugins\com.vocollect.vce.2.2.1_2.2.1.20160712110019\vce\VocollectVoice\Lib\io.py
+itertools
+json.__init__|E:\Back UP 26Diciembre2020\eclipse\eclipseVA20(Oxygen)\plugins\com.vocollect.vce.2.2.1_2.2.1.20160712110019\vce\VocollectVoice\Lib\json\__init__.py
+json.decoder|E:\Back UP 26Diciembre2020\eclipse\eclipseVA20(Oxygen)\plugins\com.vocollect.vce.2.2.1_2.2.1.20160712110019\vce\VocollectVoice\Lib\json\decoder.py
+json.encoder|E:\Back UP 26Diciembre2020\eclipse\eclipseVA20(Oxygen)\plugins\com.vocollect.vce.2.2.1_2.2.1.20160712110019\vce\VocollectVoice\Lib\json\encoder.py
+json.scanner|E:\Back UP 26Diciembre2020\eclipse\eclipseVA20(Oxygen)\plugins\com.vocollect.vce.2.2.1_2.2.1.20160712110019\vce\VocollectVoice\Lib\json\scanner.py
+json.tool|E:\Back UP 26Diciembre2020\eclipse\eclipseVA20(Oxygen)\plugins\com.vocollect.vce.2.2.1_2.2.1.20160712110019\vce\VocollectVoice\Lib\json\tool.py
+keyword|E:\Back UP 26Diciembre2020\eclipse\eclipseVA20(Oxygen)\plugins\com.vocollect.vce.2.2.1_2.2.1.20160712110019\vce\VocollectVoice\Lib\keyword.py
+libzmq|E:\Back UP 26Diciembre2020\eclipse\eclipseVA20(Oxygen)\plugins\com.vocollect.vce.2.2.1_2.2.1.20160712110019\vce\VocollectVoice\libzmq.dll
+linecache|E:\Back UP 26Diciembre2020\eclipse\eclipseVA20(Oxygen)\plugins\com.vocollect.vce.2.2.1_2.2.1.20160712110019\vce\VocollectVoice\Lib\linecache.py
+locale|E:\Back UP 26Diciembre2020\eclipse\eclipseVA20(Oxygen)\plugins\com.vocollect.vce.2.2.1_2.2.1.20160712110019\vce\VocollectVoice\Lib\locale.py
+logging.__init__|E:\Back UP 26Diciembre2020\eclipse\eclipseVA20(Oxygen)\plugins\com.vocollect.vce.2.2.1_2.2.1.20160712110019\vce\VocollectVoice\Lib\logging\__init__.py
+logging.config|E:\Back UP 26Diciembre2020\eclipse\eclipseVA20(Oxygen)\plugins\com.vocollect.vce.2.2.1_2.2.1.20160712110019\vce\VocollectVoice\Lib\logging\config.py
+logging.handlers|E:\Back UP 26Diciembre2020\eclipse\eclipseVA20(Oxygen)\plugins\com.vocollect.vce.2.2.1_2.2.1.20160712110019\vce\VocollectVoice\Lib\logging\handlers.py
+marshal
+math
+mimetypes|E:\Back UP 26Diciembre2020\eclipse\eclipseVA20(Oxygen)\plugins\com.vocollect.vce.2.2.1_2.2.1.20160712110019\vce\VocollectVoice\Lib\mimetypes.py
+mock_catalyst|E:\Back UP 26Diciembre2020\eclipse\eclipseVA20(Oxygen)\plugins\com.vocollect.voiceartisan.addons_2.1.3.202010221741\mockcatalyst\2.1.1\mock_catalyst.py
+netadapters|E:\Back UP 26Diciembre2020\eclipse\eclipseVA20(Oxygen)\plugins\com.vocollect.vce.2.2.1_2.2.1.20160712110019\vce\VocollectVoice\Lib\netadapters.pyd
+nt
+ntpath|E:\Back UP 26Diciembre2020\eclipse\eclipseVA20(Oxygen)\plugins\com.vocollect.vce.2.2.1_2.2.1.20160712110019\vce\VocollectVoice\Lib\ntpath.py
+nturl2path|E:\Back UP 26Diciembre2020\eclipse\eclipseVA20(Oxygen)\plugins\com.vocollect.vce.2.2.1_2.2.1.20160712110019\vce\VocollectVoice\Lib\nturl2path.py
+numbers|E:\Back UP 26Diciembre2020\eclipse\eclipseVA20(Oxygen)\plugins\com.vocollect.vce.2.2.1_2.2.1.20160712110019\vce\VocollectVoice\Lib\numbers.py
+opcode|E:\Back UP 26Diciembre2020\eclipse\eclipseVA20(Oxygen)\plugins\com.vocollect.vce.2.2.1_2.2.1.20160712110019\vce\VocollectVoice\Lib\opcode.py
+operator
+os|E:\Back UP 26Diciembre2020\eclipse\eclipseVA20(Oxygen)\plugins\com.vocollect.vce.2.2.1_2.2.1.20160712110019\vce\VocollectVoice\Lib\os.py
+parser
+pickle|E:\Back UP 26Diciembre2020\eclipse\eclipseVA20(Oxygen)\plugins\com.vocollect.vce.2.2.1_2.2.1.20160712110019\vce\VocollectVoice\Lib\pickle.py
+pkgutil|E:\Back UP 26Diciembre2020\eclipse\eclipseVA20(Oxygen)\plugins\com.vocollect.vce.2.2.1_2.2.1.20160712110019\vce\VocollectVoice\Lib\pkgutil.py
+platform|E:\Back UP 26Diciembre2020\eclipse\eclipseVA20(Oxygen)\plugins\com.vocollect.vce.2.2.1_2.2.1.20160712110019\vce\VocollectVoice\Lib\platform.py
+posixpath|E:\Back UP 26Diciembre2020\eclipse\eclipseVA20(Oxygen)\plugins\com.vocollect.vce.2.2.1_2.2.1.20160712110019\vce\VocollectVoice\Lib\posixpath.py
+pprint|E:\Back UP 26Diciembre2020\eclipse\eclipseVA20(Oxygen)\plugins\com.vocollect.vce.2.2.1_2.2.1.20160712110019\vce\VocollectVoice\Lib\pprint.py
+py_compile|E:\Back UP 26Diciembre2020\eclipse\eclipseVA20(Oxygen)\plugins\com.vocollect.vce.2.2.1_2.2.1.20160712110019\vce\VocollectVoice\Lib\py_compile.py
+pycurl|E:\Back UP 26Diciembre2020\eclipse\eclipseVA20(Oxygen)\plugins\com.vocollect.vce.2.2.1_2.2.1.20160712110019\vce\VocollectVoice\Lib\pycurl.pyd
+pyexpat|E:\Back UP 26Diciembre2020\eclipse\eclipseVA20(Oxygen)\plugins\com.vocollect.vce.2.2.1_2.2.1.20160712110019\vce\VocollectVoice\Lib\pyexpat.pyd
+python31|E:\Back UP 26Diciembre2020\eclipse\eclipseVA20(Oxygen)\plugins\com.vocollect.vce.2.2.1_2.2.1.20160712110019\vce\VocollectVoice\python31.dll
+queue|E:\Back UP 26Diciembre2020\eclipse\eclipseVA20(Oxygen)\plugins\com.vocollect.vce.2.2.1_2.2.1.20160712110019\vce\VocollectVoice\Lib\queue.py
+quopri|E:\Back UP 26Diciembre2020\eclipse\eclipseVA20(Oxygen)\plugins\com.vocollect.vce.2.2.1_2.2.1.20160712110019\vce\VocollectVoice\Lib\quopri.py
+random|E:\Back UP 26Diciembre2020\eclipse\eclipseVA20(Oxygen)\plugins\com.vocollect.vce.2.2.1_2.2.1.20160712110019\vce\VocollectVoice\Lib\random.py
+re|E:\Back UP 26Diciembre2020\eclipse\eclipseVA20(Oxygen)\plugins\com.vocollect.vce.2.2.1_2.2.1.20160712110019\vce\VocollectVoice\Lib\re.py
+reprlib|E:\Back UP 26Diciembre2020\eclipse\eclipseVA20(Oxygen)\plugins\com.vocollect.vce.2.2.1_2.2.1.20160712110019\vce\VocollectVoice\Lib\reprlib.py
+runpy|E:\Back UP 26Diciembre2020\eclipse\eclipseVA20(Oxygen)\plugins\com.vocollect.vce.2.2.1_2.2.1.20160712110019\vce\VocollectVoice\Lib\runpy.py
+select|E:\Back UP 26Diciembre2020\eclipse\eclipseVA20(Oxygen)\plugins\com.vocollect.vce.2.2.1_2.2.1.20160712110019\vce\VocollectVoice\Lib\select.pyd
+shutil|E:\Back UP 26Diciembre2020\eclipse\eclipseVA20(Oxygen)\plugins\com.vocollect.vce.2.2.1_2.2.1.20160712110019\vce\VocollectVoice\Lib\shutil.py
+signal
+site|E:\Back UP 26Diciembre2020\eclipse\eclipseVA20(Oxygen)\plugins\com.vocollect.vce.2.2.1_2.2.1.20160712110019\vce\VocollectVoice\Lib\site.py
+socket|E:\Back UP 26Diciembre2020\eclipse\eclipseVA20(Oxygen)\plugins\com.vocollect.vce.2.2.1_2.2.1.20160712110019\vce\VocollectVoice\Lib\socket.py
+socketserver|E:\Back UP 26Diciembre2020\eclipse\eclipseVA20(Oxygen)\plugins\com.vocollect.vce.2.2.1_2.2.1.20160712110019\vce\VocollectVoice\Lib\socketserver.py
+sre_compile|E:\Back UP 26Diciembre2020\eclipse\eclipseVA20(Oxygen)\plugins\com.vocollect.vce.2.2.1_2.2.1.20160712110019\vce\VocollectVoice\Lib\sre_compile.py
+sre_constants|E:\Back UP 26Diciembre2020\eclipse\eclipseVA20(Oxygen)\plugins\com.vocollect.vce.2.2.1_2.2.1.20160712110019\vce\VocollectVoice\Lib\sre_constants.py
+sre_parse|E:\Back UP 26Diciembre2020\eclipse\eclipseVA20(Oxygen)\plugins\com.vocollect.vce.2.2.1_2.2.1.20160712110019\vce\VocollectVoice\Lib\sre_parse.py
+stat|E:\Back UP 26Diciembre2020\eclipse\eclipseVA20(Oxygen)\plugins\com.vocollect.vce.2.2.1_2.2.1.20160712110019\vce\VocollectVoice\Lib\stat.py
+string|E:\Back UP 26Diciembre2020\eclipse\eclipseVA20(Oxygen)\plugins\com.vocollect.vce.2.2.1_2.2.1.20160712110019\vce\VocollectVoice\Lib\string.py
+struct|E:\Back UP 26Diciembre2020\eclipse\eclipseVA20(Oxygen)\plugins\com.vocollect.vce.2.2.1_2.2.1.20160712110019\vce\VocollectVoice\Lib\struct.py
+sys
+tempfile|E:\Back UP 26Diciembre2020\eclipse\eclipseVA20(Oxygen)\plugins\com.vocollect.vce.2.2.1_2.2.1.20160712110019\vce\VocollectVoice\Lib\tempfile.py
+threading|E:\Back UP 26Diciembre2020\eclipse\eclipseVA20(Oxygen)\plugins\com.vocollect.vce.2.2.1_2.2.1.20160712110019\vce\VocollectVoice\Lib\threading.py
+time
+token|E:\Back UP 26Diciembre2020\eclipse\eclipseVA20(Oxygen)\plugins\com.vocollect.vce.2.2.1_2.2.1.20160712110019\vce\VocollectVoice\Lib\token.py
+tokenize|E:\Back UP 26Diciembre2020\eclipse\eclipseVA20(Oxygen)\plugins\com.vocollect.vce.2.2.1_2.2.1.20160712110019\vce\VocollectVoice\Lib\tokenize.py
+traceback|E:\Back UP 26Diciembre2020\eclipse\eclipseVA20(Oxygen)\plugins\com.vocollect.vce.2.2.1_2.2.1.20160712110019\vce\VocollectVoice\Lib\traceback.py
+types|E:\Back UP 26Diciembre2020\eclipse\eclipseVA20(Oxygen)\plugins\com.vocollect.vce.2.2.1_2.2.1.20160712110019\vce\VocollectVoice\Lib\types.py
+unicodedata|E:\Back UP 26Diciembre2020\eclipse\eclipseVA20(Oxygen)\plugins\com.vocollect.vce.2.2.1_2.2.1.20160712110019\vce\VocollectVoice\Lib\unicodedata.pyd
+unittest|E:\Back UP 26Diciembre2020\eclipse\eclipseVA20(Oxygen)\plugins\com.vocollect.vce.2.2.1_2.2.1.20160712110019\vce\VocollectVoice\Lib\unittest.py
+urllib.__init__|E:\Back UP 26Diciembre2020\eclipse\eclipseVA20(Oxygen)\plugins\com.vocollect.vce.2.2.1_2.2.1.20160712110019\vce\VocollectVoice\Lib\urllib\__init__.py
+urllib.error|E:\Back UP 26Diciembre2020\eclipse\eclipseVA20(Oxygen)\plugins\com.vocollect.vce.2.2.1_2.2.1.20160712110019\vce\VocollectVoice\Lib\urllib\error.py
+urllib.parse|E:\Back UP 26Diciembre2020\eclipse\eclipseVA20(Oxygen)\plugins\com.vocollect.vce.2.2.1_2.2.1.20160712110019\vce\VocollectVoice\Lib\urllib\parse.py
+urllib.request|E:\Back UP 26Diciembre2020\eclipse\eclipseVA20(Oxygen)\plugins\com.vocollect.vce.2.2.1_2.2.1.20160712110019\vce\VocollectVoice\Lib\urllib\request.py
+urllib.response|E:\Back UP 26Diciembre2020\eclipse\eclipseVA20(Oxygen)\plugins\com.vocollect.vce.2.2.1_2.2.1.20160712110019\vce\VocollectVoice\Lib\urllib\response.py
+urllib.robotparser|E:\Back UP 26Diciembre2020\eclipse\eclipseVA20(Oxygen)\plugins\com.vocollect.vce.2.2.1_2.2.1.20160712110019\vce\VocollectVoice\Lib\urllib\robotparser.py
+uu|E:\Back UP 26Diciembre2020\eclipse\eclipseVA20(Oxygen)\plugins\com.vocollect.vce.2.2.1_2.2.1.20160712110019\vce\VocollectVoice\Lib\uu.py
+voice.__init__|E:\Back UP 26Diciembre2020\eclipse\eclipseVA20(Oxygen)\plugins\com.vocollect.vce.2.2.1_2.2.1.20160712110019\vce\VocollectVoice\Lib\voice\__init__.py
+voice.atunload|E:\Back UP 26Diciembre2020\eclipse\eclipseVA20(Oxygen)\plugins\com.vocollect.vce.2.2.1_2.2.1.20160712110019\vce\VocollectVoice\Lib\voice\atunload.py
+voice.audio|E:\Back UP 26Diciembre2020\eclipse\eclipseVA20(Oxygen)\plugins\com.vocollect.vce.2.2.1_2.2.1.20160712110019\vce\VocollectVoice\Lib\voice\audio.py
+voice.dialog_objects|E:\Back UP 26Diciembre2020\eclipse\eclipseVA20(Oxygen)\plugins\com.vocollect.vce.2.2.1_2.2.1.20160712110019\vce\VocollectVoice\Lib\voice\dialog_objects.py
+voice.globalwords|E:\Back UP 26Diciembre2020\eclipse\eclipseVA20(Oxygen)\plugins\com.vocollect.vce.2.2.1_2.2.1.20160712110019\vce\VocollectVoice\Lib\voice\globalwords.py
+voice.prohibitor|E:\Back UP 26Diciembre2020\eclipse\eclipseVA20(Oxygen)\plugins\com.vocollect.vce.2.2.1_2.2.1.20160712110019\vce\VocollectVoice\Lib\voice\prohibitor.py
+voice.recognition|E:\Back UP 26Diciembre2020\eclipse\eclipseVA20(Oxygen)\plugins\com.vocollect.vce.2.2.1_2.2.1.20160712110019\vce\VocollectVoice\Lib\voice\recognition.py
+warnings|E:\Back UP 26Diciembre2020\eclipse\eclipseVA20(Oxygen)\plugins\com.vocollect.vce.2.2.1_2.2.1.20160712110019\vce\VocollectVoice\Lib\warnings.py
+weakref|E:\Back UP 26Diciembre2020\eclipse\eclipseVA20(Oxygen)\plugins\com.vocollect.vce.2.2.1_2.2.1.20160712110019\vce\VocollectVoice\Lib\weakref.py
+winreg
+xml.__init__|E:\Back UP 26Diciembre2020\eclipse\eclipseVA20(Oxygen)\plugins\com.vocollect.vce.2.2.1_2.2.1.20160712110019\vce\VocollectVoice\Lib\xml\__init__.py
+xml.etree.ElementInclude|E:\Back UP 26Diciembre2020\eclipse\eclipseVA20(Oxygen)\plugins\com.vocollect.vce.2.2.1_2.2.1.20160712110019\vce\VocollectVoice\Lib\xml\etree\ElementInclude.py
+xml.etree.ElementPath|E:\Back UP 26Diciembre2020\eclipse\eclipseVA20(Oxygen)\plugins\com.vocollect.vce.2.2.1_2.2.1.20160712110019\vce\VocollectVoice\Lib\xml\etree\ElementPath.py
+xml.etree.ElementTree|E:\Back UP 26Diciembre2020\eclipse\eclipseVA20(Oxygen)\plugins\com.vocollect.vce.2.2.1_2.2.1.20160712110019\vce\VocollectVoice\Lib\xml\etree\ElementTree.py
+xml.etree.__init__|E:\Back UP 26Diciembre2020\eclipse\eclipseVA20(Oxygen)\plugins\com.vocollect.vce.2.2.1_2.2.1.20160712110019\vce\VocollectVoice\Lib\xml\etree\__init__.py
+xml.parsers.__init__|E:\Back UP 26Diciembre2020\eclipse\eclipseVA20(Oxygen)\plugins\com.vocollect.vce.2.2.1_2.2.1.20160712110019\vce\VocollectVoice\Lib\xml\parsers\__init__.py
+xml.parsers.expat|E:\Back UP 26Diciembre2020\eclipse\eclipseVA20(Oxygen)\plugins\com.vocollect.vce.2.2.1_2.2.1.20160712110019\vce\VocollectVoice\Lib\xml\parsers\expat.py
+xml.sax.__init__|E:\Back UP 26Diciembre2020\eclipse\eclipseVA20(Oxygen)\plugins\com.vocollect.vce.2.2.1_2.2.1.20160712110019\vce\VocollectVoice\Lib\xml\sax\__init__.py
+xml.sax._exceptions|E:\Back UP 26Diciembre2020\eclipse\eclipseVA20(Oxygen)\plugins\com.vocollect.vce.2.2.1_2.2.1.20160712110019\vce\VocollectVoice\Lib\xml\sax\_exceptions.py
+xml.sax.expatreader|E:\Back UP 26Diciembre2020\eclipse\eclipseVA20(Oxygen)\plugins\com.vocollect.vce.2.2.1_2.2.1.20160712110019\vce\VocollectVoice\Lib\xml\sax\expatreader.py
+xml.sax.handler|E:\Back UP 26Diciembre2020\eclipse\eclipseVA20(Oxygen)\plugins\com.vocollect.vce.2.2.1_2.2.1.20160712110019\vce\VocollectVoice\Lib\xml\sax\handler.py
+xml.sax.saxutils|E:\Back UP 26Diciembre2020\eclipse\eclipseVA20(Oxygen)\plugins\com.vocollect.vce.2.2.1_2.2.1.20160712110019\vce\VocollectVoice\Lib\xml\sax\saxutils.py
+xml.sax.xmlreader|E:\Back UP 26Diciembre2020\eclipse\eclipseVA20(Oxygen)\plugins\com.vocollect.vce.2.2.1_2.2.1.20160712110019\vce\VocollectVoice\Lib\xml\sax\xmlreader.py
+xmlrpc.__init__|E:\Back UP 26Diciembre2020\eclipse\eclipseVA20(Oxygen)\plugins\com.vocollect.voiceartisan.addons_2.1.3.202010221741\python\IDEUnittests\xmlrpc\__init__.py
+xmlrpc.client|E:\Back UP 26Diciembre2020\eclipse\eclipseVA20(Oxygen)\plugins\com.vocollect.voiceartisan.addons_2.1.3.202010221741\python\IDEUnittests\xmlrpc\client.py
+xmlrpc.server|E:\Back UP 26Diciembre2020\eclipse\eclipseVA20(Oxygen)\plugins\com.vocollect.voiceartisan.addons_2.1.3.202010221741\python\IDEUnittests\xmlrpc\server.py
+xxsubtype
+zipfile|E:\Back UP 26Diciembre2020\eclipse\eclipseVA20(Oxygen)\plugins\com.vocollect.vce.2.2.1_2.2.1.20160712110019\vce\VocollectVoice\Lib\zipfile.py
+zipimport
+zlib

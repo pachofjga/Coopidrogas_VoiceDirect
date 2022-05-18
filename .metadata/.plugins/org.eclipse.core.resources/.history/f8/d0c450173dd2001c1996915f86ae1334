@@ -1,0 +1,250 @@
+#-------------------------------------------------------------------------------
+#  Copyright 2016 Honeywell International Inc. All rights reserved. 
+#-------------------------------------------------------------------------------
+
+import threading
+import time
+import voice
+import _json
+
+from communications import Request
+from pending_generic import PendingGeneric
+from VDERPDialogs import prompt_ready
+from vocollect_core.utilities.localization import itext
+from vocollect_core.dialog.base_dialog import BaseDialog
+from vocollect_core.task.task_runner import TaskRunnerBase
+from voice import get_voice_application_property
+from voice import log_message
+
+class AsyncHttpRequest():
+    
+    def __init__(self, command_name, request_timeout = 20):
+        self.command_name = command_name
+        self.request_timeout = request_timeout
+        self.response = {}
+        
+        self._waiting_for_request = False
+        
+        self._data_lock = threading.RLock()
+        self._background_thread = None
+        self._transmit_done_event = None
+        
+        self.error_code = None
+        self._previous_request = None
+
+    def request_with_wait_retry(self, request, interval = 2, audio = None, return_on_app_error = False, 
+                                allowed_dynamic_vocab=[]):
+        
+        while True:
+            #print (json.dumps(request))
+            self._previous_request = request
+            self.start_request(request)
+            self.VDERP_wait_for_data(interval, audio)
+
+            #process errors
+            if self.error_code != None:
+                #log error
+                if 'data' in self.response:
+                    voice.log_message("ASYNC_HTTP_REQUEST: Error making request - %s" % str(self.response['data']))
+                elif 'message' in self.response:
+                    voice.log_message("ASYNC_HTTP_REQUEST: Error making request - %s" % self.response['message'])
+                else:
+                    voice.log_message("ASYNC_HTTP_REQUEST: Error making request - %s" % str(self.error_code))
+                
+                #speak message
+                message = itext('error.getting.data')
+
+                #Disable Dynamic Vocab for this prompt only
+                #BaseDialog.exclude_dynamic_vocab = True
+                additional_vocab = self._get_allowed_dynamic_vocab(allowed_dynamic_vocab)
+                vocab_spoken = None
+                if self.error_code ==-10000:
+                    voice.log_message("ASYNC_HTTP_REQUEST: Error code -1000, Return to VDERPLut")
+                    break
+                elif self.error_code ==-10061:
+                    voice.log_message("ASYNC_HTTP_REQUEST: Error code -100061, Return to VDERPLut")
+                    break  
+                else:
+                    if 'message' in self.response:
+                        message = self.response['message']
+                    
+                    while self._execute_dynamic_vocab(vocab_spoken):
+                        vocab_spoken = prompt_ready(itext('error.say.ready', message),
+                                                    additional_vocab=additional_vocab)
+                        
+                    if return_on_app_error:
+                        break
+                    
+            elif self.response == {}:
+                raise Exception
+            elif self.error_code == None:
+                break
+
+    def _get_allowed_dynamic_vocab(self, allowed_dynamic_vocab):
+        ''' Determines which of the current dynamic vocab are allowed
+            (if any). usually only sign off is allowed.
+        '''
+        dv = None
+        main_runner = TaskRunnerBase.get_main_runner()
+        curr_task = None
+        if main_runner is not None:
+            curr_task = main_runner.get_current_task()
+        if hasattr(curr_task, "dynamic_vocab"):
+            dv = curr_task.dynamic_vocab
+    
+        result = {}
+        if dv is not None:
+            for vocab in allowed_dynamic_vocab:
+                if dv._valid(vocab):
+                    result[vocab] = dv.vocabs[vocab].confirm
+        
+        return result
+    
+    def _execute_dynamic_vocab(self, vocab):
+        ''' check and Execute dynamic vocab if spoken.
+            return  True - Continue to prompt
+                    False - exit from error prompt
+        '''
+        if vocab == "ready":
+            return False
+        if vocab == None:
+            return True 
+        
+        dv = None
+        curr_task = TaskRunnerBase.get_main_runner().get_current_task()
+        if hasattr(curr_task, "dynamic_vocab"):
+            dv = curr_task.dynamic_vocab
+        
+        if dv is not None:
+            dv.execute_vocab(vocab)
+        return True
+        
+    def start_request(self, request):
+        self._background_thread = threading.Thread(target = self._back_ground_send, 
+                                                   name = 'AsyncHttpRequest - ' + self.command_name, 
+                                                   args = [request])
+        self._waiting_for_request = True
+        self._background_thread.start()
+    
+    def _back_ground_send(self, request):
+        #Clear/Reset threading variables
+        with self._data_lock:
+            self._request_exception = None
+            self._transmit_done_event = threading.Event()
+
+        #Make Request            
+        response = {}
+        exception = None
+        self.error_code = None
+        try:
+            response = Request.json_request(self.command_name, 
+                                            request, 
+                                            self.request_timeout)
+        except Exception as err:
+            err.__traceback__ = None
+            exception = err
+            
+        #Clean up threading variables and set values
+        with self._data_lock:
+            if exception != None:
+                self.error_code = -10000
+                self.response = {'code' : -10000, 'message' : 'error contacting host system', 'data' : exception}
+            elif 'result' in response:
+                self.response = response['result']
+            elif 'error' in response:
+                if 'code' in response['error']:
+                    self.error_code = response['error']['code']
+                else:
+                    self.error_code = -10001
+                self.response = response['error']
+            else:
+                self.error_code = -10001
+                self.response = {'code' : -10001, 'message' : 'invalid format for response', 'data' : response}
+
+            self._background_thread = None
+            #self._transmit_done_event.set()
+            self._transmit_done_event = None
+            self._waiting_for_request = False
+
+    def data_ready(self):
+        return not self._waiting_for_request
+
+    def _waiting(self):
+        #same as data ready without exception, only should be called from wait_for_data
+        return self._waiting_for_request
+    
+    def wait_for_data(self, interval = 2, audio = None):
+
+        #For performance reasons check if pending Note's exist before launching dialog
+        start = time.clock()
+        while time.clock() - start < (interval - 0.2) and self._waiting_for_request:
+            time.sleep(0.05)
+        #If still pending records at this point then launch dialog to wait.
+        '''
+        if self._waiting_for_request:
+            d = PendingGeneric(self._waiting, interval, audio)
+            d.help_prompt = itext('generic.pending.notes')
+            d.prompt = itext('generic.pending.notes')
+            d.run()
+        '''
+    def VDERP_wait_for_data(self, interval = 2, audio = None):
+
+        #For performance reasons check if pending Note's exist before launching dialog
+        start = time.clock()
+        while time.clock() - start < (interval - 0.2) and self._waiting_for_request:
+            time.sleep(0.05)
+           
+        if self._waiting_for_request:
+            d = PendingGeneric(self._waiting, interval, audio)
+            d.help_prompt = itext('generic.pending.notes')
+            d.prompt = itext('generic.pending.notes')
+            d.run()
+                    
+    #methods for main class to emulate a dict object
+    def __len__(self):
+        self.VDERP_wait_for_data()
+        return len(self.response)
+
+    def __getitem__(self, key):
+        self.VDERP_wait_for_data()
+        return self.response.__getitem__(key)
+
+    def __setitem__(self, key, value):
+        self.VDERP_wait_for_data()
+        return self.response.__setitem__(key, value)
+
+    def __delitem__(self, key):
+        self.VDERP_wait_for_data()
+        return self.response.__delitem__(key)
+
+    def __iter__(self):
+        self.VDERP_wait_for_data()
+        return self.response.__iter__()
+
+    def __str__(self):
+        self.VDERP_wait_for_data()
+        return self.response.__str__()
+    
+    def __contains__(self, item):
+        self.VDERP_wait_for_data()
+        return self.response.__contains__(item)
+
+    def keys(self):
+        self.VDERP_wait_for_data()
+        return self.response.keys()
+    
+    def values(self):
+        self.VDERP_wait_for_data()
+        return self.response.values()
+    
+        
+    #methods to allow for pickling
+    def __getstate__(self):
+        state = self.__dict__.copy()
+        state['_data_lock'] = None
+        return state
+
+    def __setstate__(self, state):
+        self.__dict__ = state
+        self._data_lock = threading.RLock()
+    

@@ -1,0 +1,9 @@
+MODULES_MANAGER_V2
+vocollect_http.__init__|E:\Back UP 26Diciembre2020\WorkSpaceGIT_VAOxygen\Coopidrogas_VoiceDirect\Vocollect HTTP Library 1.3.101\src\vocollect_http\__init__.py
+vocollect_http.httpserver|E:\Back UP 26Diciembre2020\WorkSpaceGIT_VAOxygen\Coopidrogas_VoiceDirect\Vocollect HTTP Library 1.3.101\src\vocollect_http\httpserver.py
+vocollect_http.net.__init__|E:\Back UP 26Diciembre2020\WorkSpaceGIT_VAOxygen\Coopidrogas_VoiceDirect\Vocollect HTTP Library 1.3.101\src\vocollect_http\net\__init__.py
+vocollect_http.net.ipaddr|E:\Back UP 26Diciembre2020\WorkSpaceGIT_VAOxygen\Coopidrogas_VoiceDirect\Vocollect HTTP Library 1.3.101\src\vocollect_http\net\ipaddr.py
+vocollect_http.net.udpbroadcast|E:\Back UP 26Diciembre2020\WorkSpaceGIT_VAOxygen\Coopidrogas_VoiceDirect\Vocollect HTTP Library 1.3.101\src\vocollect_http\net\udpbroadcast.py
+vocollect_http.scgi.__init__|E:\Back UP 26Diciembre2020\WorkSpaceGIT_VAOxygen\Coopidrogas_VoiceDirect\Vocollect HTTP Library 1.3.101\src\vocollect_http\scgi\__init__.py
+vocollect_http.scgi.netstring|E:\Back UP 26Diciembre2020\WorkSpaceGIT_VAOxygen\Coopidrogas_VoiceDirect\Vocollect HTTP Library 1.3.101\src\vocollect_http\scgi\netstring.py
+vocollect_http.scgi.scgiserver|E:\Back UP 26Diciembre2020\WorkSpaceGIT_VAOxygen\Coopidrogas_VoiceDirect\Vocollect HTTP Library 1.3.101\src\vocollect_http\scgi\scgiserver.py

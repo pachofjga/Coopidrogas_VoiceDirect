@@ -1,0 +1,129 @@
+#-------------------------------------------------------------------------------
+#  Copyright 2016 Honeywell International Inc. All rights reserved. 
+#-------------------------------------------------------------------------------
+from LUT.voice_attribute_error import VoiceAttributeError
+from commands.button import Button
+from commands.get_data import GetData
+from commands.help import Help
+from commands.pass_through import PassThrough
+from commands.repost import RePost
+from commands.screen_id import ScreenId
+from commands.sign_off import SignOff
+from commands.sign_on import SignOn
+from commands.speak_prompt import SpeakPrompt
+from commands.vocabulary import Vocabulary
+from instructions.help_messages import HelpMessages
+from instructions.instruction_set import InstructionSet
+from vocollect_core import obj_factory
+from voice import log_message, getenv, get_voice_application_property
+from communications.async_http_request import AsyncHttpRequest
+import time
+import json
+from communications import Request
+
+
+
+class VDERPLut(object):
+    
+    
+    def __init__(self):
+        
+        self.object_types = {'ScreenID':ScreenId, 'Help':Help, 'SpeakPrompt':SpeakPrompt, \
+                             'GetData':GetData, 'GetNumeric':GetData, 'GetAlpha' : GetData, \
+                             'GetAlphaNumeric':GetData, 'GetBarCode':GetData, 'Button':Button, \
+                             'Vocabulary':Vocabulary, 'PassThrough':PassThrough, 'SignOn':SignOn, \
+                             'RePost':RePost, 'SignOff':SignOff, 'GetAnchor':GetData, 'GetFloat':GetData} 
+                            
+        '''
+        Removed the LUT object reference since we are getting a JSON response
+        '''
+        self._instruction_set = InstructionSet()        
+        self._help_messages = None
+        self._screenId = None
+        self.http_request = None
+        ''' This holds the response coming in from the PT '''        
+        self.response = {}
+        
+    def post(self, command, name_value_pairs, shareSAPUser = False):
+        request = {}
+        now = time.strftime("%m-%d-%y %H:%M:%S")
+        self.error_code = None
+        request["DateTime"] = now
+        request["DeviceSN"] = getenv('Device.Id')
+        operator = getenv('Operator.Id')
+        
+        # Netlogistik Jumex customization to share SAP user across shifts
+        if shareSAPUser:  
+            # indicates that operator name should be parsed when posting sign on
+            request["OperatorID"] = operator.split('-')[0]
+        else:
+            request["OperatorID"] = operator
+        request["LanguageCode"] = getenv('SwVersion.Locale','en_US')
+        
+        # creating an AsyncHttpRequest object
+        # 160709-000000 ConnectionTimeOut property value not being used for the LUT timeout
+        self.http_request =  AsyncHttpRequest(command, int(get_voice_application_property('ConnectionTimeOut')))
+        self.http_request.response = {}
+        
+        '''
+        creating the the JSON object that needs posted
+        ''' 
+        if (command == 'Post') or (command == 'SignOn') or (command == 'SignOff'):
+            request["URL"] = self._screenId.url
+            request["cookie"] = self._screenId.cookie
+            for name in name_value_pairs:
+                request[name] = name_value_pairs[name]
+        elif (command == 'Init'):
+            request['URL'] = ""
+            request['cookie'] = "" 
+            for name in name_value_pairs:
+                request[name] = name_value_pairs[name]
+        try:
+            #using the updated http l       
+            
+            self.http_request.request_with_wait_retry(request, return_on_app_error=True)
+            #time.sleep(10)
+            self._build_instructions()                                
+        except Exception as err:
+            if command == 'SignOn':
+                request['sap-Password'] = 'XXX'
+            log_message('VoiceDirect ERP Lut Error: LUT = %s, Message = %s' % (request, str(err)))
+            raise err
+        except VoiceAttributeError as err:
+            raise err    
+            
+    def _build_instructions(self):
+        self._instruction_set = InstructionSet()
+        self._help_messages = HelpMessages()
+        ''' Create Python objects from the JSON response. '''    
+        for data in self.http_request.response:
+            try:
+                if 'command' in data:
+                    obj =  obj_factory.get(self.object_types[data['command']], data)
+                
+            except KeyError as err:
+                raise VoiceAttributeError('Error: Unknown command name ' +  '"' + str(data['command']) + '"' + \
+                                           ' for screen ' + '"' + str(self._screenId.fieldid) + '"')
+            except ValueError as err:
+                raise VoiceAttributeError(str(err) + ' for screen ' + '"' + str(self._screenId.fieldid) + '"')
+            except Exception as err:
+                print(err)
+                raise VoiceAttributeError(str(err) + ' for screen ' + '"' + str(self._screenId.fieldid) + '"')
+            ''' Add the instruction to the proper collection. '''
+            if obj.type == 'Command' or obj.type == 'Action':
+                self._instruction_set.add(obj)
+            elif obj.type == 'Help':   
+                self._help_messages.add(obj)
+            elif obj.type == 'ScreenId':
+                self._screenId = obj
+                self._instruction_set.screen_id = obj.fieldid
+            log_message(str(obj))
+       
+     
+    @property    
+    def get_instructions(self):
+        return self._instruction_set    
+        
+    @property 
+    def get_help_messages(self):
+        return self._help_messages          

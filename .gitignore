@@ -1,0 +1,9 @@
+/*/.gitignore
+/*/.metadata
+/Vocollect*
+/*/temp*
+*.pyc
+*.exe
+*.jar
+*.class
+*.vad

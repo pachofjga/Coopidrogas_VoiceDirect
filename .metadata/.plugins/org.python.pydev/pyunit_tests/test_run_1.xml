@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?pydev-testrun version="1.0"?><pydev-testsuite>
+<summary errors="1" failures="0" finished="true" name="Test Run: 1" tests="0" total_time="null"/>
+<test location="E:\voice-application-copidrogas\test.py" status="error" test="test" time="0">
+<stdout/>
+<stderr><![CDATA[Traceback (most recent call last):
+  File "E:\Back UP 26Diciembre2020\eclipse\eclipseVA20(Oxygen)\plugins\org.python.pydev_6.2.0.201711281614\pysrc\_pydev_runfiles\pydev_runfiles.py", line 468, in __get_module_from_str
+    mod = __import__(modname)
+  File "E:/voice-application-copidrogas\test.py", line 12, in <module>
+    import mock_catalyst
+  File "E:\Back UP 26Diciembre2020\eclipse\eclipseVA20(Oxygen)\plugins\com.vocollect.voiceartisan.addons_2.1.3.202010221741\mockcatalyst\3.0.0\mock_catalyst.py", line 1716, in <module>
+    load_configuration()
+  File "E:\Back UP 26Diciembre2020\eclipse\eclipseVA20(Oxygen)\plugins\com.vocollect.voiceartisan.addons_2.1.3.202010221741\mockcatalyst\3.0.0\mock_catalyst.py", line 1709, in load_configuration
+    load_application_property_from_project()
+  File "E:\Back UP 26Diciembre2020\eclipse\eclipseVA20(Oxygen)\plugins\com.vocollect.voiceartisan.addons_2.1.3.202010221741\mockcatalyst\3.0.0\mock_catalyst.py", line 1469, in load_application_property_from_project
+    paths = _get_project_paths()
+  File "E:\Back UP 26Diciembre2020\eclipse\eclipseVA20(Oxygen)\plugins\com.vocollect.voiceartisan.addons_2.1.3.202010221741\mockcatalyst\3.0.0\mock_catalyst.py", line 1444, in _get_project_paths
+    _project_depth(__main_proj, 0)
+  File "E:\Back UP 26Diciembre2020\eclipse\eclipseVA20(Oxygen)\plugins\com.vocollect.voiceartisan.addons_2.1.3.202010221741\mockcatalyst\3.0.0\mock_catalyst.py", line 1416, in _project_depth
+    _project_depth(proj, depth+1)
+  File "E:\Back UP 26Diciembre2020\eclipse\eclipseVA20(Oxygen)\plugins\com.vocollect.voiceartisan.addons_2.1.3.202010221741\mockcatalyst\3.0.0\mock_catalyst.py", line 1416, in _project_depth
+    _project_depth(proj, depth+1)
+  File "E:\Back UP 26Diciembre2020\eclipse\eclipseVA20(Oxygen)\plugins\com.vocollect.voiceartisan.addons_2.1.3.202010221741\mockcatalyst\3.0.0\mock_catalyst.py", line 1416, in _project_depth
+    _project_depth(proj, depth+1)
+  File "E:\Back UP 26Diciembre2020\eclipse\eclipseVA20(Oxygen)\plugins\com.vocollect.voiceartisan.addons_2.1.3.202010221741\mockcatalyst\3.0.0\mock_catalyst.py", line 1411, in _project_depth
+    if depth < __proj_refs[project][1]:
+KeyError: 'Vocollect Core Library 1.4.101'
+ERROR: Module: test could not be imported (file: E:\voice-application-copidrogas\test.py).
+]]></stderr>
+</test>
+<launch mode="run">
+<launch_memento><![CDATA[<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<launchConfiguration local="true" path="Jumex-VDERP test.py (1)"/>
+]]></launch_memento>
+</launch>
+</pydev-testsuite>

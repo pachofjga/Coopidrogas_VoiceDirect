@@ -1,0 +1,52 @@
+#-------------------------------------------------------------------------------
+#  Copyright 2016 Honeywell International Inc. All rights reserved. 
+#-------------------------------------------------------------------------------
+import dialogs
+from processor.processor import Processor
+
+
+from vocollect_core.utilities.pickler import register_pickle_obj
+from vocollect_core.task.task_runner import TaskRunnerBase
+from vocollect_core.utilities.class_factory import get
+
+from vocollect_core.utilities import obj_factory
+#from processor.mlProcessor import MLProcessor #@UnusedImport
+
+
+
+class AppRunner(get(TaskRunnerBase)):
+
+    def __init__(self):
+        super().__init__()
+        
+        self.name = 'VoiceDirectERP'
+
+    #----------------------------------------------------------
+    def startUp(self):
+        ''' Main startup method launching core task '''
+    #    self.launch(obj_factory.get(Init, self), None)
+        self.launch(Processor(taskRunner = None, callingTask = None), self)
+        
+    #----------------------------------------------------------
+    def initialize(self):
+        ''' Application initialization '''
+        self.appName = "VoiceDirect ERP for Voice Catalyst"
+
+#===============================================================
+# Startup method
+#===============================================================
+def app_runner_startup():
+    
+    #logger = logging.getLogger("DropInDirectRunner")
+      
+    ''' Main method for starting VDERP application '''
+
+    ap = AppRunner()
+    ap = register_pickle_obj("AppRunner", ap)
+    #globals.runner = ap  
+    dialogs.runner = ap
+    
+    ap.execute()
+    
+
+

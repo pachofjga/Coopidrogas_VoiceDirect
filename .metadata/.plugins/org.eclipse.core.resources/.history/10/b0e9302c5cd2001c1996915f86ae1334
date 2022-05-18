@@ -1,0 +1,678 @@
+#-------------------------------------------------------------------------------
+#  Copyright 2016 Honeywell International Inc. All rights reserved. 
+#-------------------------------------------------------------------------------
+from LUT.VDERPLut import VDERPLut
+from LUT.voice_attribute_error import VoiceAttributeError
+from VDERPDialogs import prompt_ready, prompt_words
+from shared_constants import SIGN_IN_PAGE, LOGGED_IN, WELCOME_PAGE
+from utilities.string_helpers import insert_space
+from vocollect_core import class_factory
+from vocollect_core.dialog.functions import prompt_only
+from vocollect_core.task.task import TaskBase
+from vocollect_core.utilities.localization import itext
+from vocollect_http.httpserver import set_display_page
+from voice import log_message
+from voice import getenv, open_vad_resource
+from vocollect_core.task.task_runner import TaskRunnerBase
+import voice
+
+
+
+
+#States
+POST_INIT                   = 'post_init'
+POST_SIGNON                 = 'post_sign_on'
+PROCESS_INSTRUCTIONS        = 'process_instructions'
+POST_TO_HOST                = 'post_to_host'
+PROCESS_SPEAK_PROMPT        = 'process_speak_prompt'
+EVALUATE_OPERATOR_RESPONSE  = 'evaluate_operator_response'  
+SPEAK_READY                 = 'speak_ready'
+GET_DATA_STATE              = 'get_data_state'
+POST_SIGNOFF                = 'post_sign_off'
+SIGN_OFF_FLAG               = 'false'
+CHANGE_OPERATOR_FLAG        = 'false'
+
+class Processor(class_factory.get(TaskBase)):
+    
+    def __init__(self, taskRunner = None, callingTask = None):
+        super().__init__(taskRunner, callingTask )
+        self._current_instruction_set = None
+        self._help_message = None
+        self._what_to_speak = ''
+        self._name_value_pairs = {}
+        self._previous_name_value_pairs = {}
+        self._lut = VDERPLut()
+        self._command = 'Init'
+        self._previous_command = self._command
+        self._password_prefix_field_name  = None
+        self._password_prefix_field_value = None
+        self._instruction = None
+        self._additional_vocabulary = None
+        self._confirmation_prompts = None
+        self._word = None
+        self._lut_help_messages = None
+        self.current_operator = ''
+        self._uom_by_key = {}
+        self._uom_by_word = {}
+        self._anchor_value = ''
+        self._sap_anchor_value = ''
+        self._single_ready_prompt = True
+                               
+    def initializeStates(self):
+        '''Set task name'''
+        self.name = "Processor"
+        '''set states '''
+        self.addState(POST_INIT, self.post_init)
+        self.addState(POST_SIGNON, self.post_sign_on)        
+        self.addState(PROCESS_INSTRUCTIONS, self.process_instructions)
+        self.addState(EVALUATE_OPERATOR_RESPONSE, self.evaluate_operator_response)
+        self.addState(PROCESS_SPEAK_PROMPT, self.process_speak_prompt)
+        self.addState(GET_DATA_STATE, self.get_data_state)
+        self.addState(SPEAK_READY, self.speak_ready)
+        self.addState(POST_TO_HOST, self.post_to_host)
+        self.addState(POST_SIGNOFF, self.post_sign_off)
+
+
+    def post_init(self):
+        ''' set the welcome page that will be posted by the app when in this state. '''
+        set_display_page(self, WELCOME_PAGE)
+        ''' post the "Init" message to the PT to get back the welcome prompt '''
+        self._command = "Init"
+        self.post()
+
+    def post_sign_off(self):
+        self._command = "SignOff"
+        self.post()
+        
+    
+    def post_sign_on(self):
+        
+        self._command = "SignOn"
+        # Check if password_prefix_field_name has a value (i.e. 'sap-Password').
+        #    If it does, then pre-append 'password-prefix' value to password spoken by user ('sap-Password' name value pair).
+        if self._password_prefix_field_name != None:
+            if self._password_prefix_field_name in self._name_value_pairs:
+                self._name_value_pairs[self._password_prefix_field_name] = self._password_prefix_field_value \
+                                                                         + self._name_value_pairs[self._password_prefix_field_name]
+            else:
+                # Catch 'sap-Password' spelt wrong in 'password-prefix' bean error
+                self._report_error_posting_to_host("Error in voice attributes file. Field name for 'password-prefix' is incorrect " + \
+                                                    self._password_prefix_field_name)
+                self.next_state = POST_INIT
+                return
+        self.post()
+         
+    def post_to_host(self):
+        ''' post the collected name value pairs to the host '''
+        self._command = "Post"
+        self.post()
+
+             
+    def post(self):
+        ''' post the command to the PT.  NOTE: that ALL posts to the PT are handled by this method '''
+        ''' Evaluate the operators response to the prompt.'''
+        self._what_to_speak = ''
+        try:
+            self.current_operator = getenv('Operator.Name', '') 
+                           
+            self._lut.post(self._command, self._name_value_pairs)
+        except VoiceAttributeError as err:
+            ''' We failed to build a valid instruction set.  This typically means that something went
+            wrong in the build_instructions method of the VDERP Lut class.  Our only option is to 
+            send the user back to the Welcome Prompt. This may result in orphaned  sessions on the 
+            SAP side since we are not able to sign off first. Posting a sign off could be an option
+            but it is not always in the available vocabulary '''
+            self._report_voice_attribute_error(err.message)
+            self.next_state = self.current_state
+            return
+        except Exception as err:
+            ''' In all cases retry the post. 
+                If we modify our application to send a transaction ID and we modify the service handler 
+                on the SAP side to take advantage of this, we could potentially deal with this issue to avoid 
+                duplicate posts.   ''' 
+            ''' The previous name value pairs were saved in the post method above '''
+            self._report_connection_error()
+            
+            if self._previous_command == 'SignOn':
+                self.next_state = POST_TO_HOST
+            elif self._previous_command == 'SignOff':
+                self.next_state = POST_SIGNOFF
+            elif self._previous_command == 'Init':
+                self.next_state = POST_INIT
+            else:
+                self.next_state = POST_TO_HOST
+            
+            self._name_value_pairs['retry'] = "true"
+
+          
+                
+            if 'sap-password' in self._name_value_pairs:
+                self._name_value_pairs['sap-password'] = "XXX"
+                if 'retry' in self._name_value_pairs:
+                    del self._name_value_pairs['retry']
+            if 'sap-Password' in self._name_value_pairs:
+                self._name_value_pairs['sap-Password'] = "XXX"
+                if 'retry' in self._name_value_pairs:
+                    del self._name_value_pairs['retry']
+            self._previous_name_value_pairs = self._name_value_pairs
+            self._previous_command = self._command
+            
+            
+            return
+        ''' We got a valid response and instruction back from the host... process it 
+        save the command and name/value pairs for processing below in the case of a 
+        RePost command from an error screen. '''
+        self._previous_command = self._command
+        self._previous_name_value_pairs =self._name_value_pairs
+        self._current_instruction_set = self._lut.get_instructions
+        self._lut_help_messages = self._lut.get_help_messages
+        self._name_value_pairs = {}
+        self.next_state = PROCESS_INSTRUCTIONS
+        ''' If this was a successfull sign on the display a different page '''
+        if (self._command == "SignOn"):
+            ''' 
+            Set the logged in  page that will be posted by the app when in this state. 
+            This may not be accurate for the case where the operator has failed to give 
+            the proper password. 
+            '''
+            set_display_page(self, LOGGED_IN)
+
+        
+
+    
+    def process_instructions(self):
+        global SIGN_OFF_FLAG
+        self._instruction = self._current_instruction_set.get_next_instruction()
+        
+        if self._instruction == None:
+            ''' we've run out of instructions.  assume that the user wants to post'''
+            self.next_state = POST_TO_HOST
+            return
+        else:
+            if self._instruction.fieldid == 'ENDOFSESSION':
+                ''' The operator said sign off.  Start over'''
+                self._password_prefix_field_name  = None
+                self._password_prefix_field_value = None
+                self.next_state = POST_INIT
+                return     
+            if self._instruction.command == 'Button' or self._instruction.command == 'Vocabulary' or \
+                self._instruction.command == 'ScreenID' or self._instruction.command == 'Help':
+                self.next_state = PROCESS_INSTRUCTIONS
+                return
+            ''' Get the additional vocabulary and confirmation prompts for this self._instruction group '''
+            self._additional_vocabulary, self._confirmation_prompts = \
+                self._current_instruction_set.get_additional_vocabulary_words(self._instruction.group)
+            ''' Get the help_nessage for this self._instruction group '''
+            self._help_message = self._lut_help_messages.get_message_by_group(self._instruction.group) 
+            if self._instruction.command == 'SpeakPrompt':
+                self.next_state = PROCESS_SPEAK_PROMPT
+                return
+            elif self._instruction.command == 'GetData': 
+                ''' Note that the final part of the prompt could be contained in the getter '''
+                self._what_to_speak = insert_space(self._what_to_speak,self._instruction.prompt)
+                
+                self.next_state = GET_DATA_STATE
+                return
+            elif self._instruction.command == 'PassThrough':
+                ''' PassThrough instructions allow us to send information to the host that may or 
+                may not be in the html with out prompting the operator. '''  
+                name, value = self._instruction.process(self._help_message, self._additional_vocabulary)
+                ''' If fieldid is 'password-prefix', copy name/value returned from pass_through to 
+                    self._password_prefix_field_name/self._password_prefix_field_value respectively.'''
+                if self._instruction.fieldid == 'password-prefix':
+                    self._password_prefix_field_name  = name
+                    self._password_prefix_field_value = value
+                else:
+                    ''' Check if there is already an entry with the same 'name' in name/value pair dictionary.
+                        If there is one, log a warning message.
+                        (NOTE: name/value pairs will be updated with the latest entry)'''
+                    if name in self._name_value_pairs:
+                        log_message('Warning: Duplicate Name/Value entry in PT-INIT for fieldName "%s". Last entry (value = "%s") will be processed.' 
+                                    % (name, value) )
+                    self._name_value_pairs[name] = value
+                self.next_state = PROCESS_INSTRUCTIONS
+                return     
+            elif self._instruction.command == 'SignOn': 
+                ''' The SignOn instruction is "special". This command is used by the PT to determine
+                when to get/send cookie information. ''' 
+                self.next_state = POST_SIGNON
+                return
+            elif self._instruction.command == 'RePost': 
+                ''' For the repost command the next state has to be adjusted based on 
+                what is being reposted. '''
+                if self._previous_command == 'SignOn':
+                    self.next_state = POST_SIGNON
+                elif self._previous_command == 'SignOff':
+                    self.next_state = POST_SIGNOFF
+                elif self._previous_command == 'Init':
+                    self.next_state = POST_INIT
+                else:
+                    self.next_state = POST_TO_HOST
+                ''' The previous name value pairs were saved in the post method above '''
+                self._name_value_pairs = self._previous_name_value_pairs
+                return 
+        
+
+    def evaluate_operator_response(self):
+        
+        ''' Evaluate the operators response to the prompt.'''
+        ''' Handle special cases first '''
+        
+        global SIGN_OFF_FLAG
+        global CHANGE_OPERATOR_FLAG
+        
+        if (SIGN_OFF_FLAG == 'true'):
+            SIGN_OFF_FLAG = 'false'
+            self._name_value_pairs['~OKCode'] = '/NEX'
+            self.next_state = POST_SIGNOFF
+            return
+        
+        if (CHANGE_OPERATOR_FLAG == 'true'):
+            CHANGE_OPERATOR_FLAG = 'false'
+            self.next_state = POST_INIT
+            return
+        
+        ''' The operator spoke ready'''
+        if self._word == 'VRESERVE001':
+            if hasattr(self._instruction, "validate"):
+                ''' we are trying to do validation but we were not sent a value to validate against
+                accept ready and post an empty value'''
+                if ((int(self._instruction.validate) == 1) and (str(self._instruction.fieldvalue) == "")):
+                    log_message('Warning: validation is enabled but there is no value to validate against.')
+                    self._name_value_pairs[self._instruction.fieldname] = ""
+                    if hasattr(self._instruction, "postbutton") and self._instruction.postbutton != "":
+                        try:
+                            self._add_button_to_name_value_pairs()
+                            self.next_state =  POST_TO_HOST
+                            return
+                        except ValueError:
+                            self.next_state = PROCESS_INSTRUCTIONS
+                            return        
+                    else:
+                        self.next_state = PROCESS_INSTRUCTIONS
+                        return
+            ''' The word ready is associated with a button, post the button's value '''
+            if self._instruction.command == 'Button':
+                self._name_value_pairs[self._instruction.fieldname] = self._instruction.fieldvalue
+                self._what_to_speak = ''
+                self.next_state = POST_TO_HOST
+                return
+            elif self._instruction.command == 'SpeakPrompt' and self._instruction.postbutton != '':
+                try:
+                    self._add_button_to_name_value_pairs()
+                    self.next_state = POST_TO_HOST
+                    return
+                except ValueError:
+                    self.next_state = PROCESS_INSTRUCTIONS
+                    return
+            else:
+                self._what_to_speak = ''
+                self.next_state = PROCESS_INSTRUCTIONS
+                return
+            
+        ''' Description was spoken and is always available '''   
+        if self._word == 'VRESERVE005': 
+            self._speak_description()
+            self._what_to_speak = ""
+            self._current_instruction_set.reset_pointer_to_current_group()
+            self.next_state =  PROCESS_INSTRUCTIONS
+            return
+        
+        ''' word can be equal to None when a series of SpeakPrompt commands did not build the complete prompt.
+            Attempt to keep building the prompt.
+        '''
+        if self._word == None:
+            self.next_state = PROCESS_INSTRUCTIONS
+            return
+                     
+        if self._word in self._additional_vocabulary:
+            ''' The operator spoke a vocabulary word requesting information or
+                they spoke a command that represents a button press.
+            '''
+            try:
+                self._instruction = self._current_instruction_set.get_action_by_vcommand(self._word)
+            except ValueError:
+                ''' If the button can not be found, report an error  '''
+                self._report_voice_attribute_error('Error for spoken command' + '"' + self._word + '"' + \
+                ' for screen id ' +  '"' + self._current_instruction_set.screen_id + '"') 
+                self.next_state = PROCESS_INSTRUCTIONS
+                return               
+                
+            ''' If the command is a button post the name value pair for the button '''
+            if self._instruction.command == "Button":
+                self._name_value_pairs[self._instruction.fieldname] = self._instruction.fieldvalue
+                self._what_to_speak = ""
+                ''' speak sign off then the next state is going to be sign off'''
+                if self._word == 'VRESERVE002':
+                    self.next_state = POST_SIGNOFF
+                else:
+                    self.next_state = POST_TO_HOST
+                return
+            else:
+                ''' The operator spoke a command that is requesting additional information.
+                    Speak the information to the operator 
+                '''
+                prompt_only(self._instruction.fieldvalue)
+                self._what_to_speak = ""
+                self._current_instruction_set.reset_pointer_to_current_group()
+                self.next_state =  PROCESS_INSTRUCTIONS
+                return
+        else:
+            ''' collecting data from the operator. Add it to the name/value pairs'''
+            if hasattr(self._instruction, "validate"):
+                ''' we are trying to do validation but we were not sent a value to validate against
+                and the operator spoke something other than ready send whatever the operator spoke '''
+                if ((int(self._instruction.validate) == 1) and (str(self._instruction.fieldvalue) == "")): 
+                    log_message('Warning: validation is enabled but there is no value to validate against.')
+                    self._name_value_pairs[self._instruction.fieldname] = self._word
+                    if hasattr(self._instruction, "postbutton") and self._instruction.postbutton != "":
+                        try:
+                            self._add_button_to_name_value_pairs()
+                            self.next_state = POST_TO_HOST
+                            return
+                        except ValueError:
+                            ''' If the button can not be found an error was reported by 
+                                _add_button_to_name_value_pairs()  '''
+                            self.next_state = PROCESS_INSTRUCTIONS
+                            return                    
+                    else:
+                        self.next_state = PROCESS_INSTRUCTIONS
+                        return
+            ''' add what was spoken by the operator to the name value pairs '''
+            self._name_value_pairs[self._instruction.fieldname] = self._word
+            
+            ''' if the current instruction has a postbutton attribute, find the button and post 
+            to the host otherwise keep processing instructions'''
+            if str(self._instruction.postbutton) == '':
+                ''' not ready to post yet.  Keep on processing '''
+                self._what_to_speak = ""
+                self.next_state = PROCESS_INSTRUCTIONS
+                return
+            else:
+                
+                if hasattr(self._instruction, "_anchorword"):
+                    anchor_word = self._instruction._anchorword
+                else:
+                    anchor_word = "0"
+                if (int(anchor_word) == 1):
+                    if (self._uom_by_key[self._anchor_value] == self._sap_anchor_value):
+                        try:
+                            ''' Get the button data to post '''
+                            self._add_button_to_name_value_pairs()
+                            self.next_state = POST_TO_HOST
+                            return
+                        except ValueError:
+                            ''' If the button can not be found an error was reported by 
+                            _add_button_to_name_value_pairs()  '''
+                            self.next_state = PROCESS_INSTRUCTIONS
+                            return
+                    else:
+                        self._uom_error('Error in UOM value spoken') 
+                        return
+                else:
+                    try:
+                        ''' Get the button data to post '''
+                        self._add_button_to_name_value_pairs()
+                        self.next_state = POST_TO_HOST
+                        return
+                    except ValueError:
+                        ''' If the button can not be found an error was reported by 
+                        _add_button_to_name_value_pairs()  '''
+                        self.next_state = PROCESS_INSTRUCTIONS
+                        return
+                    
+        self.next_state = PROCESS_INSTRUCTIONS
+        return
+            
+                
+    def process_speak_prompt (self):
+        ''' Keep processing SpeakPrompt instructions until the group number changes or the
+            SpeakPrompt has the ready attribute set
+        '''
+        current_group = self._instruction.group
+        prompt_is_complete = False
+        while (self._instruction.group == current_group) and (self._instruction.command == 'SpeakPrompt'):
+            ''' prompt_is_complete will be set if the instruction.ready is set'''
+            what_to_speak,prompt_is_complete = self._instruction.process(self._help_message, self._additional_vocabulary)
+            self._what_to_speak = insert_space(self._what_to_speak, what_to_speak)
+            if prompt_is_complete:
+                ''' The complete prompt has been built. Speak it now and return the operators response'''
+                self._single_ready_prompt = True
+                self.next_state = SPEAK_READY
+                return 
+            self._instruction = self._current_instruction_set.get_next_instruction()
+            if self._instruction == None:
+                break; 
+                
+        ''' Move instruction pointer back one instruction to the last SpeakPrompt command because 
+            we have not built the complete prompt yet. The remaining part of the prompt my be in the 
+            prePrompt field of a button command.  We can determine this by looking at the postbutton
+            field of the SpeakPrompt command.
+        '''
+        self._instruction = self._current_instruction_set.get_previous_instruction()
+        if self._instruction.postbutton != '':
+            ''' The instruction is requesting a button push.  Go find the button. '''
+            try:
+                ''' Get the pre-prompt from the button instruction '''
+                self._instruction = self._current_instruction_set.get_instruction_by_fieldid(self._instruction.postbutton)
+                self._name_value_pairs[self._instruction.fieldname] = self._instruction.fieldvalue
+                ''' check to see if the prePrompt field on the button is empty.  If it is then 
+                    speak the prompt to the operator and press the button.  This use case is use when
+                    you want to skip over a screen and not have to speak anything to the operator. '''
+                if self._instruction.preprompt =='':
+                    prompt_only(itext(self._what_to_speak), False )
+                    self.next_state = POST_TO_HOST
+                else:
+                    self._what_to_speak = insert_space(self._what_to_speak,self._instruction.preprompt)
+                    #VDIVW-272
+                    if self._additional_vocabulary is None or len(self._additional_vocabulary) == 0 or 'VRESERVE001' in self._additional_vocabulary:
+                        self._single_ready_prompt = True
+                    else:
+                        self._single_ready_prompt = False
+                    self.next_state =  SPEAK_READY
+                return
+            except ValueError:
+                ''' If the button can not be found, report an error  '''
+                return self._report_voice_attribute_error('Button ' + '"' + self._instruction.postbutton + '"' + \
+                    ' was not found for instruction ' + '"' + 'Get' +  str(self._instruction.datatype) + '"' + \
+                    ' for screen id ' +  '"' + self._current_instruction_set.screen_id + '"') 
+        ''' The complete prompt has not been built so there is not response from the
+            operator.  Return None as the response.
+        '''
+        self._word = None
+        self.next_state = PROCESS_INSTRUCTIONS
+        return 
+    
+    
+    def speak_ready(self):
+        
+        global SIGN_OFF_FLAG
+                     
+        try:
+            voice.set_event_callback(change_operator, voice.EVT_TERMINAL_WAKEUP_CB) #@UndefinedVariable
+        except:
+            voice.log_message("CALLBACK: Could not register operator change call back in this version of catalyst")
+        try:
+            self._word = prompt_ready(self._what_to_speak, self._help_message.message, True, self._additional_vocabulary, self._single_ready_prompt)
+            self.next_state = EVALUATE_OPERATOR_RESPONSE 
+                  
+        
+        finally:
+            #remove operator call back 
+                        
+            try:
+                voice.set_event_callback(None, voice.EVT_TERMINAL_WAKEUP_CB) #@UndefinedVariable
+                log_message("CALLBACK: Unregistered the callback function!")
+            except:
+                voice.log_message("CALLBACK: Could not unregister operator change call back")
+            
+        return 
+        
+        
+    def get_data_state(self):
+        
+        self._keyList = []
+        global SIGN_OFF_FLAG
+        #Invoking the change welcome only at the say ready as it does not apply for getting data
+        try:
+            voice.set_event_callback(change_operator, voice.EVT_TERMINAL_WAKEUP_CB) #@UndefinedVariable
+        except:
+            voice.log_message("CALLBACK: Could not register operator change call back in this version of catalyst")
+        
+        try:          
+        
+            if(self._instruction.fieldname == 'sap-Password'):
+                '''
+                Set the page to post to be the sign-in page if the task is waiting 
+                for password input from operator.
+                '''
+                set_display_page(self, SIGN_IN_PAGE)
+
+            _anchor_word = self._instruction._anchorword
+            if (int(_anchor_word) == 1):
+                try:        
+                    uom_file = open_vad_resource('vocabulary_maps/uommap_'  + \
+                                  getenv('SwVersion.Locale', 'en_US')  + '.txt')
+                    for line in uom_file:
+                        (key,value) = line.split(",") 
+                        if value.rstrip() == 'not used':
+                            continue
+                        else:
+                            self._uom_by_key[key] = value.rstrip()
+                            self._uom_by_word[value.rstrip()] = key
+                            self._keyList.append(key)  
+                except KeyError as key_error:
+                    log_message(key_error)
+                    raise
+                name, value, self._anchor_value, self._sap_anchor_value = self._instruction.process(self._what_to_speak, self._help_message, self._additional_vocabulary, \
+                                                self._confirmation_prompts, self._keyList)
+                self._word = value
+            else:        
+                name, value = self._instruction.process(self._what_to_speak, self._help_message, self._additional_vocabulary, \
+                                                self._confirmation_prompts, self._uom_by_word)
+                self._word = value[0]
+            self._what_to_speak = ''
+            
+            self.next_state = EVALUATE_OPERATOR_RESPONSE
+        
+        finally:
+                            
+            try:
+                voice.set_event_callback(None, voice.EVT_TERMINAL_WAKEUP_CB) #@UndefinedVariable
+                log_message("CALLBACK: Unregistered the callback function!")
+            except:
+                
+                voice.log_message("CALLBACK: Could not unregister operator change call back")
+                       
+        return
+         
+    def _speak_description(self):
+        
+        descriptions = self._current_instruction_set.get_description_list()
+        for description in descriptions:
+            word =  prompt_words(itext(description.fielddescription), False, ['VRESERVE001', 'VRESERVE006'])
+            if word == 'VRESERVE006':
+                break
+
+    def _add_button_to_name_value_pairs(self):
+        ''' either add the name/value pairs for the button to the name/value pairs dictionary
+            or report a error and raise an exception
+        '''
+        try:
+            self._instruction = self._current_instruction_set.get_instruction_by_fieldid(self._instruction.postbutton)
+            self._name_value_pairs[self._instruction.fieldname] = self._instruction.fieldvalue
+        except ValueError as err:
+            ''' If the button can not be found, report an error  '''
+            self._report_voice_attribute_error('Button ' + '"' + self._instruction.postbutton + '"' + \
+            ' was not found for instruction ' + '"' + 'Get' +  str(self._instruction.datatype) + '"' + \
+            ' for screen id ' +  '"' + self._current_instruction_set.screen_id + '"') 
+            raise err
+
+    ''' this error is reported when something goes wrong with the password-prefix feature. '''
+    def _report_error_posting_to_host(self, message):
+        log_message(message)
+        return prompt_ready(itext('error.posting.message'), itext('error.say.ready.message'), True)
+        
+    
+    
+    def _report_connection_error(self):
+        ''' Report this error if the PT is NOT accepting connections.  This can happen if 
+        the PT is not running or the PT configuration is incorrect or the VAD port and the PT port
+        are not the same '''    
+
+        return prompt_ready(itext('error.getting.information.message'), itext('error.say.ready.message'), True)  
+    
+    
+    def _report_voice_attribute_error(self, message):
+        ''' Report a voice attribute error to the user.  This error is caused when the VDERPLut class 
+            cannot build a valid instruciton set.  This error is also reported when a button object 
+            cannot be found when searching for it in the current instruction set. This can happen if
+            the developer misspells the fieldid of a button command..
+                 
+        Parameters:
+              message -  the message that is logged to the device log file.
+        '''
+        log_message(message)
+        return prompt_ready(itext('error.voiceattributes.message'), itext('error.say.ready.message'), True)
+    
+    
+    def _report_unexpected_error(self, err):
+        ''' Report an unexpected error to the user and log the exception to the device log.
+            Report this error if the connection timed out.  A connection time out has to be an 
+            unexpected error otherwise if we repost to SAP we can get out of sync with SAP.
+             
+        Parameters:
+              err -  the exception that was thrown.
+        '''
+        log_message(str(err))
+        return prompt_ready(itext('error.unexpected.message'), itext('error.say.ready.message'), True)
+    
+    def _uom_error(self, message):
+        ''' UOM trailing word mismatch happening..
+                 
+        Parameters:
+              message -  the message that is logged to the device log file.
+        '''
+        global SIGN_OFF_FLAG
+                     
+        try:
+            voice.set_event_callback(change_operator, voice.EVT_TERMINAL_WAKEUP_CB) #@UndefinedVariable
+        except:
+            voice.log_message("CALLBACK: Could not register operator change call back in this version of catalyst")
+        try:
+            self._word = prompt_ready(itext('error.uom.message'), itext('error.say.ready.message'), True)
+            self.next_state = EVALUATE_OPERATOR_RESPONSE 
+                    
+        finally:
+            #remove operator call back 
+                        
+            try:
+                voice.set_event_callback(None, voice.EVT_TERMINAL_WAKEUP_CB) #@UndefinedVariable
+                log_message("CALLBACK: Unregistered the callback function!")
+            except:
+                voice.log_message("CALLBACK: Could not unregister operator change call back")
+            
+        return 
+              
+def change_operator():
+
+    ''' If in the middle of task then changing the operator should force the operator to sign off '''
+    global SIGN_OFF_FLAG
+    global CHANGE_OPERATOR_FLAG
+    minlength_val = '1'
+    task = TaskRunnerBase.get_main_runner().get_current_task()
+    # At a state which is not the Init State
+            
+    new_operator = getenv('Operator.Name', '')
+    if (task.current_operator != new_operator):
+        if (task._command == 'Init'):
+            prompt = itext('welcome.message') + ' ' + itext('current.operator.message') + ' ' + getenv('Operator.Name', '') + itext('operator.changed.welcome.help')
+            voice.set_last_prompt(prompt)
+            CHANGE_OPERATOR_FLAG = 'true'
+            voice.log_message(CHANGE_OPERATOR_FLAG)
+        else:
+            SIGN_OFF_FLAG = 'true'
+            prompt = itext('operator.changed.help')
+            voice.set_last_prompt(prompt)
+        
+        

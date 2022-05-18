@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<responseQueue>
+
+
+	<response  name="Post" endOfRecord="\n" expression="Post">
+
+		<record data= "ScreenID,PT-INIT-Integrated,,PT-INIT-Integrated,0,0,,http://10.0.13.76:8006/sap/vowm_lm01/,,,,,,,,,0,0,0,0,0,0,0,0,"/> 
+		<record data= "SpeakPrompt,WelcomePrompt,,,1,1,,,This is Speak Prompt 1.,,,,,,,,0,0,0,0,0,0,0,0,"/> 
+		<record data= "SpeakPrompt,OperatorPrompt,,Value to speak 2,1,2,,,This is speak prompt 2 ,,,,,,,,0,0,0,1,0,0,0,0,"/>
+		<record data= "GetNumeric,sap-Password,sap-Password,,2,4,,,This is from get Numeric,,,,,,,,0,0,0,0,0,0,0,0,"/>
+	</response>
+
+
+</responseQueue>

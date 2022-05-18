@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="VoiceDirect ERP Catalyst 2.0" basedir="." default="">
+	
+    <property file="./../antbuild.properties"/> 
+
+	<property name="src.dir" value="./src"/>
+	<property name="libsrc.dir" value="${applib.dir}/src"/>
+	<property name="libtest.dir" value="${applib.dir}/test"/>
+	<property name="test.dir" value="./test" />
+	<property name="testpackage.dir" value="${test.dir}/vderp_test"/>
+	<property name="corelib.dir" value="${applib.dir}/lib"/>
+	<property name="pydoc.dir" value="pydoc"/>
+	<property name="reports.dir" value="reports"/>
+	<property name="coverage.location" value="${test.dir}/coverage.py"/>
+
+	<!--  Python Ant tasks --> 
+	<path id="taskdef.path">
+	    <fileset dir="${corelib.dir}" includes="pyAntTasks-1.3.jar" /> 
+	</path>
+	<taskdef resource="pyAntTasks.properties" classpathref="taskdef.path" />
+
+	
+    <!--  Python path  -->
+    <path id="project.python.path">
+    	<pathelement location="${src.dir}"/>	
+        <pathelement location="${corelib.dir}" />
+        <pathelement location="${coretest.dir}" /> 
+    	<pathelement location="${luttest.dir}" />
+        <pathelement location="${mockcatalyst.dir}" /> 
+        <pathelement location="${test.dir}" /> 
+        <pathelement location="${coresrc.dir}" /> 
+        <pathelement location="${lutsrc.dir}" />	
+        <pathelement location="${httpsrc.dir}" />        
+        <pathelement location="${pythonsrc.dir}" />     	
+    </path> 
+	
+	<!-- run all tests with XML output-->
+    <target name="all_tests" description="Execute Python unit tests using XMLRunner">
+        <antcall target="unit_tests"/>
+        <antcall target="functional_tests"/>
+        <antcall target="system_tests"/>
+    </target>
+	
+    <!--  run unit tests  --> 
+    <target name="unit_tests" description="Execute Python unit tests using XMLRunner" >
+        <py-test python="${python.executable}" 
+            pythonpathref="project.python.path" 
+            dir="${test.dir}/vderp_test/unit_tests" 
+            testrunner="${test.runner}">
+            <fileset dir="${test.dir}/vderp_test/unit_tests">
+                <include name="**/test*.py" /> 
+            </fileset>
+        </py-test>
+    </target>
+
+    <!--  run functional tests  --> 
+    <target name="functional_tests" description="Execute Python functional tests using XMLRunner" >
+        <py-test python="${python.executable}" 
+            pythonpathref="project.python.path" 
+            dir="${test.dir}/vderp_test/functional_tests" 
+            testrunner="${test.runner}">
+            <fileset dir="${test.dir}/vderp_test/functional_tests">
+                <include name="**/test*.py" /> 
+            </fileset>
+        </py-test>
+    </target>
+	
+    <!--  run system tests  --> 
+    <target name="system_tests" description="Execute Python system tests using XMLRunner" >
+        <py-test python="${python.executable}" 
+            pythonpathref="project.python.path" 
+            dir="${test.dir}/vderp_test/system_tests" 
+            testrunner="${test.runner}">
+            <fileset dir="${test.dir}/vderp_test/system_tests">
+                <include name="**/test*.py" /> 
+            </fileset>
+        </py-test>
+    </target>
+	
+    <!-- Headless VAD Export of VoiceCatalystLutOdr
+    Generates vad in the \export folder -->
+    <target name="headless_build">
+
+        <fail unless="eclipse.root">eclipse.root has not been set
+        </fail>
+
+        <!-- WORKSPACE SUGGESTION:  
+        If you are using the -data parameter, you should make sure the temporary
+        workspace directory does not exist - often when this target fails, the
+        workspace is left in a state with open projects which will cause a
+        subsequent execution to fail.
+        To prevent this, uncomment the following statement:
+        -->
+
+        <delete dir="${workspace.dir}"/>
+    	
+        <path id="newest.equinox.launcher.path.id">
+            <first count="1">
+                <sort>
+                    <fileset dir="${eclipse.root}/plugins" includes="**/org.eclipse.equinox.launcher_*.jar"/>
+                    <reverse xmlns="antlib:org.apache.tools.ant.types.resources.comparators">
+                        <date/>
+                    </reverse>
+                </sort>
+            </first>
+        </path>
+        <property name="equinox.launcher.jar.location" refid="newest.equinox.launcher.path.id"/>
+        <!-- NOTE:  
+        The exec os ant target invoked here is a basic VoiceApplication HeadlessBuild
+        HeadlessBuild does support encrypted builds as well simply by providing
+        <arg value="-encrypted"/>
+        before the closing exec statement
+        -->
+        <exec os="Windows 7,Windows XP,Windows Vista,Windows 2003,Linux"
+            executable="java" failonerror="true">
+            <arg value="-jar" />
+            <arg value="${equinox.launcher.jar.location}"/>
+            <arg value="-data"/>
+            <arg value="${workspace.dir}"/>  
+            <arg value="-application" />
+            <arg value="com.vocollect.voiceartisan.tools.HeadlessBuild" />
+            <arg value="-project"/>
+            <arg value="${build.projects}"/>
+        </exec>
+    </target>
+
+    <!-- Headless Build of VDERP  --> 
+	<target name="build-headless">
+		<!-- First delete the workspace -->
+		<delete dir="${workspace.dir}"/>
+		
+		<!-- delete vad -->
+		<delete file="${export.vad}" />
+		
+		<!-- Find the latest equinox lanucher -->
+        <path id="newest.equinox.launcher.path.id">
+        	<first count="1">
+        		<sort>
+        			<fileset dir="${eclipse.home}/plugins" includes="**/org.eclipse.equinox.launcher_*.jar"/>
+        			<reverse xmlns="antlib:org.apache.tools.ant.types.resources.comparators">
+        				<date/>
+        			</reverse>
+        		</sort>
+        	</first>
+        </path>
+        
+        <property name="equinox.launcher.jar.location" refid="newest.equinox.launcher.path.id"/>
+
+	    <exec os="Windows XP,Windows Vista,Windows 2003,Linux"
+	         executable="java" failonerror="true">
+	        <arg value="-jar" />
+	        <arg value="${equinox.launcher.jar.location}" />
+	        <arg value="-data" />
+	        <arg value="${workspace.dir}" />
+	        <arg value="-application" />
+	        <arg value="com.vocollect.voiceartisan.tools.HeadlessBuild" />
+	        <arg value="-project"/>
+	        <arg value="${build.projects}"/>
+    		<arg value="-vad"/>
+    		<arg value="${export.vad}"/>
+	    </exec>
+		
+		<!-- Since Headlessbuild doesn't always fail - verify existance of VAD file -->
+		<available file="${export.vad}" property="isVadFile"></available>
+		<fail unless="isVadFile" message="Vad file was not created - check console output" />
+	</target>	
+	
+	
+	
+	
+	
+
+	
+	
+	
+    <!--  init target for pydocs and reports
+    <property name="pydoc.dir" value="pydoc" /> 
+    <property name="reports.dir" value="reports" /> 
+    <target name="init">
+        <mkdir dir="${pydoc.dir}" /> 
+        <mkdir dir="${reports.dir}" /> 
+    </target>
+    --> 	
+	
+    <!--  Compile Target 
+    <target name="compile">
+        <py-compile python= "{python.executable}" dir="${src.dir}" 
+        	pythonpathref="project.python.path" optimize="0" /> 
+    </target>
+	 --> 
+	
+    <!--  run all unit tests (Default target) 
+    <target name="unit_tests_all">
+        <antcall target="unit_tests_xmlrunner" /> 
+    </target>
+  -->
+    <!--  run unit tests with XML output 
+    <target name="unit_tests_xmlrunner" description="Execute Python unit tests using XMLRunner">
+        <py-test pythonpathref="project.python.path" dir="${test.dir}" 
+        	testrunner="${applib.dir}/xmlrunner.XmlTestRunner">
+            <fileset dir="${test.dir}">
+                <include name="**/test*.py" /> 
+            </fileset>
+        </py-test>
+    </target>
+  -->
+	
+</project>
+

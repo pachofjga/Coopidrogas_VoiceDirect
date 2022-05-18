@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="SearchIndexPage">
+		<item value="11" key="HISTORY_SIZE"/>
+		<section name="HISTORY6">
+			<item value="false" key="isCaseSensitive"/>
+			<item value="2" key="scope"/>
+			<item value="false" key="isWholeWord"/>
+			<item value="" key="scopeData"/>
+			<item value="saplrf_tmpl_1" key="textPattern"/>
+			<item value="*" key="filenamePattern"/>
+		</section>
+		<section name="HISTORY7">
+			<item value="false" key="isCaseSensitive"/>
+			<item value="2" key="scope"/>
+			<item value="false" key="isWholeWord"/>
+			<item value="" key="scopeData"/>
+			<item value="SAPLRF_TMPL0001" key="textPattern"/>
+			<item value="*" key="filenamePattern"/>
+		</section>
+		<section name="HISTORY4">
+			<item value="false" key="isCaseSensitive"/>
+			<item value="2" key="scope"/>
+			<item value="false" key="isWholeWord"/>
+			<item value="" key="scopeData"/>
+			<item value="jumex_RLMenu" key="textPattern"/>
+			<item value="*" key="filenamePattern"/>
+		</section>
+		<section name="HISTORY10">
+			<item value="false" key="isCaseSensitive"/>
+			<item value="2" key="scope"/>
+			<item value="false" key="isWholeWord"/>
+			<item value="" key="scopeData"/>
+			<item value="startup is True" key="textPattern"/>
+			<item value="*" key="filenamePattern"/>
+		</section>
+		<section name="HISTORY5">
+			<item value="false" key="isCaseSensitive"/>
+			<item value="2" key="scope"/>
+			<item value="false" key="isWholeWord"/>
+			<item value="" key="scopeData"/>
+			<item value="RLMenu" key="textPattern"/>
+			<item value="*" key="filenamePattern"/>
+		</section>
+		<section name="HISTORY8">
+			<item value="false" key="isCaseSensitive"/>
+			<item value="2" key="scope"/>
+			<item value="false" key="isWholeWord"/>
+			<item value="" key="scopeData"/>
+			<item value="SAPLRSRC_DYNPRO0001" key="textPattern"/>
+			<item value="*" key="filenamePattern"/>
+		</section>
+		<section name="HISTORY9">
+			<item value="false" key="isCaseSensitive"/>
+			<item value="2" key="scope"/>
+			<item value="false" key="isWholeWord"/>
+			<item value="" key="scopeData"/>
+			<item value="tcd._voiceMenu" key="textPattern"/>
+			<item value="*" key="filenamePattern"/>
+		</section>
+		<section name="HISTORY2">
+			<item value="false" key="isCaseSensitive"/>
+			<item value="2" key="scope"/>
+			<item value="false" key="isWholeWord"/>
+			<item value="" key="scopeData"/>
+			<item value="TcodeTaskBase" key="textPattern"/>
+			<item value="*" key="filenamePattern"/>
+		</section>
+		<section name="HISTORY3">
+			<item value="false" key="isCaseSensitive"/>
+			<item value="2" key="scope"/>
+			<item value="false" key="isWholeWord"/>
+			<item value="" key="scopeData"/>
+			<item value="jumex_TcodeTaskBase" key="textPattern"/>
+			<item value="*" key="filenamePattern"/>
+		</section>
+		<section name="HISTORY0">
+			<item value="false" key="isCaseSensitive"/>
+			<item value="0" key="scope"/>
+			<item value="false" key="isWholeWord"/>
+			<item value="VDERPDialogs" key="scopeData"/>
+			<item value="string_helpers" key="textPattern"/>
+			<item value="*" key="filenamePattern"/>
+		</section>
+		<section name="HISTORY1">
+			<item value="false" key="isCaseSensitive"/>
+			<item value="0" key="scope"/>
+			<item value="false" key="isWholeWord"/>
+			<item value="" key="scopeData"/>
+			<item value="voice" key="textPattern"/>
+			<item value="*" key="filenamePattern"/>
+		</section>
+	</section>
+</section>

@@ -1,0 +1,18 @@
+MODULES_MANAGER_V2
+pending_luts|E:\Back UP 26Diciembre2020\WorkSpaceGIT_VAOxygen\Coopidrogas_VoiceDirect\Vocollect LUT ODR Library 1.2.101\src\pending_luts.py
+pending_odrs|E:\Back UP 26Diciembre2020\WorkSpaceGIT_VAOxygen\Coopidrogas_VoiceDirect\Vocollect LUT ODR Library 1.2.101\src\pending_odrs.py
+vocollect_lut_odr.__init__|E:\Back UP 26Diciembre2020\WorkSpaceGIT_VAOxygen\Coopidrogas_VoiceDirect\Vocollect LUT ODR Library 1.2.101\src\vocollect_lut_odr\__init__.py
+vocollect_lut_odr.connections|E:\Back UP 26Diciembre2020\WorkSpaceGIT_VAOxygen\Coopidrogas_VoiceDirect\Vocollect LUT ODR Library 1.2.101\src\vocollect_lut_odr\connections.py
+vocollect_lut_odr.formatters|E:\Back UP 26Diciembre2020\WorkSpaceGIT_VAOxygen\Coopidrogas_VoiceDirect\Vocollect LUT ODR Library 1.2.101\src\vocollect_lut_odr\formatters.py
+vocollect_lut_odr.receivers|E:\Back UP 26Diciembre2020\WorkSpaceGIT_VAOxygen\Coopidrogas_VoiceDirect\Vocollect LUT ODR Library 1.2.101\src\vocollect_lut_odr\receivers.py
+vocollect_lut_odr.transports|E:\Back UP 26Diciembre2020\WorkSpaceGIT_VAOxygen\Coopidrogas_VoiceDirect\Vocollect LUT ODR Library 1.2.101\src\vocollect_lut_odr\transports.py
+vocollect_lut_odr_test.__init__|E:\Back UP 26Diciembre2020\WorkSpaceGIT_VAOxygen\Coopidrogas_VoiceDirect\Vocollect LUT ODR Library 1.2.101\test\vocollect_lut_odr_test\__init__.py
+vocollect_lut_odr_test.base_test_case_server|E:\Back UP 26Diciembre2020\WorkSpaceGIT_VAOxygen\Coopidrogas_VoiceDirect\Vocollect LUT ODR Library 1.2.101\test\vocollect_lut_odr_test\base_test_case_server.py
+vocollect_lut_odr_test.mock_server|E:\Back UP 26Diciembre2020\WorkSpaceGIT_VAOxygen\Coopidrogas_VoiceDirect\Vocollect LUT ODR Library 1.2.101\test\vocollect_lut_odr_test\mock_server.py
+vocollect_lut_odr_test.unit_tests.__init__|E:\Back UP 26Diciembre2020\WorkSpaceGIT_VAOxygen\Coopidrogas_VoiceDirect\Vocollect LUT ODR Library 1.2.101\test\vocollect_lut_odr_test\unit_tests\__init__.py
+vocollect_lut_odr_test.unit_tests.test_codec|E:\Back UP 26Diciembre2020\WorkSpaceGIT_VAOxygen\Coopidrogas_VoiceDirect\Vocollect LUT ODR Library 1.2.101\test\vocollect_lut_odr_test\unit_tests\test_codec.py
+vocollect_lut_odr_test.unit_tests.test_formatters|E:\Back UP 26Diciembre2020\WorkSpaceGIT_VAOxygen\Coopidrogas_VoiceDirect\Vocollect LUT ODR Library 1.2.101\test\vocollect_lut_odr_test\unit_tests\test_formatters.py
+vocollect_lut_odr_test.unit_tests.test_lut_connection|E:\Back UP 26Diciembre2020\WorkSpaceGIT_VAOxygen\Coopidrogas_VoiceDirect\Vocollect LUT ODR Library 1.2.101\test\vocollect_lut_odr_test\unit_tests\test_lut_connection.py
+vocollect_lut_odr_test.unit_tests.test_odr_connection|E:\Back UP 26Diciembre2020\WorkSpaceGIT_VAOxygen\Coopidrogas_VoiceDirect\Vocollect LUT ODR Library 1.2.101\test\vocollect_lut_odr_test\unit_tests\test_odr_connection.py
+vocollect_lut_odr_test.unit_tests.test_receivers|E:\Back UP 26Diciembre2020\WorkSpaceGIT_VAOxygen\Coopidrogas_VoiceDirect\Vocollect LUT ODR Library 1.2.101\test\vocollect_lut_odr_test\unit_tests\test_receivers.py
+vocollect_lut_odr_test.unit_tests.test_server|E:\Back UP 26Diciembre2020\WorkSpaceGIT_VAOxygen\Coopidrogas_VoiceDirect\Vocollect LUT ODR Library 1.2.101\test\vocollect_lut_odr_test\unit_tests\test_server.py

@@ -1,0 +1,20 @@
+eclipse.home=C:/Artisan/p4work/applications/voicelink/Eclipse3.7A1.2VCE2.0/eclipse
+lib2plugin.dist = C:/Artisan/p4work/tools/lib2plugin/main/com.vocollect.lib2plugin/dist
+
+# Libraries
+applib.dir=../core
+lutodr.dir=../lut
+httplib.dir=../http
+pythonlib.dir=../python
+
+#Plugin paths
+plugin.mockcatalyst.dir=C:/Artisan/p4work/applications/voicelink/vce2.0/mockcatalyst/2.0.0
+plugin.vocollectvoice.dir=C:/Artisan/p4work/applications/voicelink/vce2.0/VocollectVoice
+
+
+# headless build settings
+build.projects=C:/Artisan/p4work/applications/voiceweaver/dev/source;C:/Artisan/p4work/applications/voiceweaver/dev/core;C:/Artisan/p4work/applications/voiceweaver/dev/lut;C:/Artisan/p4work/applications/voiceweaver/dev/python;C:/Artisan/p4work/applications/voiceweaver/dev/http
+workspace.dir=C:/Artisan/p4work/applications/voiceweaver/dev/workspace
+export.vad=C:/Artisan/p4work/applications/voiceweaver/dev/VoiceDirect ERP Catalyst 2.2.vad
+
+

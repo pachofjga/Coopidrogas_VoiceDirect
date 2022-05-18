@@ -1,0 +1,17 @@
+MODULES_MANAGER_V2
+sndhdr|E:\Back UP 26Diciembre2020\WorkSpaceGIT_VAOxygen\Coopidrogas_VoiceDirect\Vocollect Python Library 1.0.0\src\sndhdr.py
+vocollect_python.__init__|E:\Back UP 26Diciembre2020\WorkSpaceGIT_VAOxygen\Coopidrogas_VoiceDirect\Vocollect Python Library 1.0.0\src\vocollect_python\__init__.py
+vocollect_python.cgi|E:\Back UP 26Diciembre2020\WorkSpaceGIT_VAOxygen\Coopidrogas_VoiceDirect\Vocollect Python Library 1.0.0\src\vocollect_python\cgi.py
+vocollect_python.email.__init__|E:\Back UP 26Diciembre2020\WorkSpaceGIT_VAOxygen\Coopidrogas_VoiceDirect\Vocollect Python Library 1.0.0\src\vocollect_python\email\__init__.py
+vocollect_python.email.charset|E:\Back UP 26Diciembre2020\WorkSpaceGIT_VAOxygen\Coopidrogas_VoiceDirect\Vocollect Python Library 1.0.0\src\vocollect_python\email\charset.py
+vocollect_python.email.generator|E:\Back UP 26Diciembre2020\WorkSpaceGIT_VAOxygen\Coopidrogas_VoiceDirect\Vocollect Python Library 1.0.0\src\vocollect_python\email\generator.py
+vocollect_python.email.message|E:\Back UP 26Diciembre2020\WorkSpaceGIT_VAOxygen\Coopidrogas_VoiceDirect\Vocollect Python Library 1.0.0\src\vocollect_python\email\message.py
+vocollect_python.email.parser|E:\Back UP 26Diciembre2020\WorkSpaceGIT_VAOxygen\Coopidrogas_VoiceDirect\Vocollect Python Library 1.0.0\src\vocollect_python\email\parser.py
+vocollect_python.hmac|E:\Back UP 26Diciembre2020\WorkSpaceGIT_VAOxygen\Coopidrogas_VoiceDirect\Vocollect Python Library 1.0.0\src\vocollect_python\hmac.py
+vocollect_python.html.__init__|E:\Back UP 26Diciembre2020\WorkSpaceGIT_VAOxygen\Coopidrogas_VoiceDirect\Vocollect Python Library 1.0.0\src\vocollect_python\html\__init__.py
+vocollect_python.html._markupbase|E:\Back UP 26Diciembre2020\WorkSpaceGIT_VAOxygen\Coopidrogas_VoiceDirect\Vocollect Python Library 1.0.0\src\vocollect_python\html\_markupbase.py
+vocollect_python.html.entities|E:\Back UP 26Diciembre2020\WorkSpaceGIT_VAOxygen\Coopidrogas_VoiceDirect\Vocollect Python Library 1.0.0\src\vocollect_python\html\entities.py
+vocollect_python.html.parser|E:\Back UP 26Diciembre2020\WorkSpaceGIT_VAOxygen\Coopidrogas_VoiceDirect\Vocollect Python Library 1.0.0\src\vocollect_python\html\parser.py
+vocollect_python.smtplib|E:\Back UP 26Diciembre2020\WorkSpaceGIT_VAOxygen\Coopidrogas_VoiceDirect\Vocollect Python Library 1.0.0\src\vocollect_python\smtplib.py
+vocollect_python.urllib.__init__|E:\Back UP 26Diciembre2020\WorkSpaceGIT_VAOxygen\Coopidrogas_VoiceDirect\Vocollect Python Library 1.0.0\src\vocollect_python\urllib\__init__.py
+vocollect_python.urllib.parse|E:\Back UP 26Diciembre2020\WorkSpaceGIT_VAOxygen\Coopidrogas_VoiceDirect\Vocollect Python Library 1.0.0\src\vocollect_python\urllib\parse.py

@@ -1,0 +1,9 @@
+# This is the driver module for the voice application.
+
+import voice
+
+# This is the driver function for the voice application.
+def main():
+	# Add additional application start-up logic here
+	d = voice.Dialog('main')
+	d.run()

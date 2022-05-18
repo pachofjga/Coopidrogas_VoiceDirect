@@ -1,0 +1,167 @@
+#-------------------------------------------------------------------------------
+#  Copyright 2016 Honeywell International Inc. All rights reserved. 
+#-------------------------------------------------------------------------------
+import time
+import _json
+import urllib.request
+
+from voice import get_voice_application_property, getenv
+import voice
+
+try:
+    import pycurl
+
+    # Only need this if pycurl's import succeeds.
+    import io
+    has_pycurl = True
+except ImportError:
+    has_pycurl = False
+
+#Dict for storing registered call backs
+response_call_backs = {}
+
+def register_response_call_back(callback_method):
+    ''' Register a call back method for monitoring JSON responses 
+        The register method should take a single parameter the the
+        response will passed in through.
+        Multiple methods may be registered, but are save/removed
+        based on the methods name. If a duplicate name is 
+        passed in the previous registered method will be replaced
+    '''
+    global response_call_backs
+    name = callback_method.__name__
+    response_call_backs[name] = callback_method
+
+def unregister_response_call_back(callback_method):
+    ''' Unregister a method from the response call back
+    '''
+    global response_call_backs
+    name = callback_method.__name__
+    if name in response_call_backs:
+        response_call_backs.pop(name)
+    
+def stamp_data(data_map):
+    if 'timestamp' not in data_map:
+        data_map['operator'] = getenv('Operator.Id', '')
+        data_map['device'] = getenv('Device.Id', '')
+        data_map['timestamp'] = time.strftime("%m-%d-%y %H:%M:%S")
+        # Site name is not required
+        #data_map['siteName'] = voice.get_voice_application_property('site')
+        data_map['locale'] = getenv('SwVersion.Locale', 'en_US')
+    
+    
+class Request(object):
+
+    _base_url = None
+
+    @classmethod
+    def full_url(cls, url_part):
+        return Request.get_base_url() + url_part
+
+    @classmethod
+    def raw_request(cls, url, data=None, timeout=20):
+        """
+        Returns binary data. 
+        """        
+        
+        voice.log_message("Voice Direct ERP app - raw request URL: " + url)
+        
+        if (has_pycurl):
+            ret = Request.__raw_request_pycurl(url, data, timeout)
+        else:
+            ret = Request.__raw_request_urllib(url, data, timeout)
+
+        return ret
+        
+    @classmethod    
+    def json_request(cls, command_name, params, timeout=20):
+        """
+        Returns the JSON string response
+        """    
+        global response_call_backs
+        
+        stamp_data(params)
+        request_data = {'method': command_name, 'params': params}        
+
+        # Note - some large strings come through here (such as voice notes). Truncate
+        # the logs to avoid spamming logger.
+        # TODO - Consider a VoiceDirect situation where this could be huge. 
+        # We could've wipe out the problematic long fields (like base 64 audio), but 
+        # felt that coupled this too much to specific content.
+        if request_data['method'] != 'SignOn': 
+            voice.log_message("Voice Direct ERP app request JSON: " + _json.dumps(request_data))
+        elif request_data['method'] == 'SignOn':
+            temp_password = request_data['params']['sap-Password']
+            request_data['params']['sap-Password'] = 'XXX'
+            voice.log_message("Voice Direct ERP app request JSON: " + _json.dumps(request_data))
+            request_data['params']['sap-Password'] = temp_password
+        # Get the list of potential recipients from the IMS server
+        response = Request.raw_request(Request.full_url('services/voiceAppCommand'), 
+                                       _json.dumps(request_data).encode("utf-8"), 
+                                       timeout) 
+        str_response = response.decode('utf-8')
+        voice.log_message("Voice Direct ERP app received JSON: " + str(str_response))
+        result = json.loads(str_response)
+        
+        #execute any callback methods that are registered
+        for key in response_call_backs.keys():
+            try:
+                response_call_backs[key](result)
+            except Exception as err:
+                print('WARNING: error occurred executing response call back: %s' % str(err))
+        
+        return result
+
+    @classmethod
+    def get_base_url(cls):
+        if Request._base_url == None:
+            
+            use_ssl = ("true" == get_voice_application_property('useSSL'))
+            
+            # PycURL is required to do HTTPS. 
+            if use_ssl and has_pycurl:
+                voice.log_message("Voice Direct ERP app using SSL security")
+                Request._base_url = 'https://'
+            else: 
+                voice.log_message("Voice Direct ERP app using unsecure connection to back end")
+                Request._base_url = 'http://'
+                
+            Request._base_url += get_voice_application_property('serverHost')
+            Request._base_url += get_voice_application_property('serverURI')
+            
+            voice.log_message("Voice Direct ERP app - Request base URL value is: " + Request._base_url)
+            
+        return Request._base_url
+
+
+    @classmethod
+    def __raw_request_urllib(cls, url, data, timeout):
+        r = urllib.request.Request(url, data, {'Content-Type' : 'application/json'})
+        f = urllib.request.urlopen(r, timeout=timeout)
+        
+        return f.read()
+
+    @classmethod
+    def __raw_request_pycurl(cls, url, data, timeout):
+        c = pycurl.Curl()
+
+        c.setopt(pycurl.HTTPHEADER, [b'Content-Type: application/json'])
+        c.setopt(pycurl.HTTPAUTH, pycurl.HTTPAUTH_BASIC)
+
+        # TBD - we'll have to provide the username and password, if there are some.
+        #c.setopt(pycurl.USERNAME, b"admin")
+        #c.setopt(pycurl.PASSWORD, b"admin")
+
+        c.setopt(pycurl.TIMEOUT, timeout)
+
+        # According to the LIB_cURL docs, POSTFIELDS implies post, so no need to set that.
+        # Without this, the HTTP action will be a GET. 
+        if data is not None:
+            c.setopt(pycurl.POSTFIELDS, data)
+            
+        c.setopt(pycurl.URL, url.encode('utf-8'))
+
+        buf = io.BytesIO()
+        c.setopt(pycurl.WRITEFUNCTION, buf.write)
+        c.perform()
+        return buf.getvalue()
